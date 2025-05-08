@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 import com.sun.management.OperatingSystemMXBean;
 
@@ -20,6 +24,11 @@ public class BenchmarkRunner {
     private final String workload;
     private final String outputPath;
     private List<SystemSnapshot> snapshots = new ArrayList<>();
+    private double throughput = 0.0;
+    AtomicLong opCount = new AtomicLong(0);
+    double runningTime = 0;
+    Queue<Long> latencies = new ConcurrentLinkedDeque<>();
+
 
     public BenchmarkRunner(Database database, int threadCount, int recordCount, String workload, String outputPath) {
         this.database = database;
@@ -32,12 +41,8 @@ public class BenchmarkRunner {
     public void run() throws InterruptedException {
         // verwaltet asynchrone prozesse/threads. scheinbar best practice?
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);
-        // Concurreny-Safe variablen
-        AtomicLong opCount = new AtomicLong(0);
         AtomicBoolean monitor = new AtomicBoolean(true);
-        Queue<Long> latencies = new ConcurrentLinkedDeque<>();
 
-        double throughput = 0.0;
 
         database.connect();
         database.loadTestData();
@@ -68,9 +73,11 @@ public class BenchmarkRunner {
         executor.shutdown();
         executor.awaitTermination(1, TimeUnit.MINUTES);
 
-        long runningTime = System.nanoTime() - startTime;
+        runningTime = (System.nanoTime() - startTime) / 1e9;
         monitor.set(false);
         throughput = opCount.get() / (runningTime / 1e9); // division durch 1e9 um auf Sekunden
+
+        export();
     }
 
     private void systemMonitoring(AtomicBoolean running){
@@ -91,6 +98,36 @@ public class BenchmarkRunner {
         });
 
         monitor.start();
+    }
+
+    private void export() {
+        try (PrintWriter writer = new PrintWriter(outputPath)) {
+            writer.println("timestamp,cpu_load_percent,cpu_load_process_percent,used_memory_mb");
+            for (SystemSnapshot snap : snapshots) {
+                writer.printf("%d,%.2f,%.2f,%.2f%n",
+                        snap.timestamp,
+                        snap.cpuLoad,
+                        snap.cpuProcessLoad,
+                        snap.usedMemory / 1024.0 / 1024.0);
+            }
+
+            writer.println();
+            writer.println("latency_ms");
+            for (long latency : latencies) {
+                writer.printf("%.3f%n", latency / 1e6);
+            }
+
+            writer.println();
+            writer.println("summary");
+            writer.println("operation_type,thread_count,total_throughput_ops_per_sec,running_time_sec,total_ops");
+            writer.printf("%s,%d,%.2f,%.2f%n", workload, threadCount, throughput, runningTime);
+
+            writer.flush();
+
+            System.out.println("Metrics exported to " + outputPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private record SystemSnapshot(long timestamp, double cpuLoad, double cpuProcessLoad, long usedMemory){};

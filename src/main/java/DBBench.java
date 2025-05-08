@@ -23,7 +23,7 @@ public class DBBench {
         int threads = Integer.parseInt(cmd.getOptionValue("threads", "1"));
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
         String workload = cmd.getOptionValue("workload", "mixed");
-        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "/Desktop/DBBench");
+        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "/Desktop/DBBench/benchmark.csv");
 
 
         Database db;
