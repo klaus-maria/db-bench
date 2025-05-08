@@ -1,13 +1,18 @@
 
+	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§©¬ë2J$ffba8486-f603-49de-956c-bff968805f6e
 ]
-java:S1220""Move this file to a named package.8Â³šë2J$a0f57a7b-4008-4c4d-a9ee-b5c617ab468c
+java:S1220""Move this file to a named package.8¨©¬ë2J$c996d757-ec2d-492e-a83c-e543e4a73c29
 
-java:S1854">Remove this useless assignment to local variable "throughput".(ªö¢”8Å³šë2J$94b98b1c-74e7-4392-9311-798bbb1a7eb7
-[
-java:S1854=">Remove this useless assignment to local variable "throughput".(ì¯¿¸8¡Î ë2
-L
-java:S1481"/Remove this unused "throughput" local variable.(ªö¢”8¤Î ë2
+java:S1854(">Remove this useless assignment to local variable "throughput".(ªö¢”8­©¬ë2J$03432a0c-e96a-4c2f-b441-a9950b0432ca
+
+java:S1854I">Remove this useless assignment to local variable "throughput".(ì¯¿¸8­©¬ë2J$12a8a9aa-c71d-4c96-919b-677da2b44553
+r
+java:S1481("/Remove this unused "throughput" local variable.(ªö¢”8°©¬ë2J$eeeb138a-f025-48d7-8b3e-f5fe3423d3ce
 a
-java:S2119."Save and re-use this "Random".(ÇÜë½8Ê³šë2J$5cb4db53-9058-4c87-af9e-b6e7f7776477
+java:S21199"Save and re-use this "Random".(ÇÜë½8²©¬ë2J$512ef3b0-9c97-4be3-9f60-484d14cbab86
+¡
+java:S2142W"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¶©¬ë2J$8cf2278b-d8b7-4d6e-9ec3-5b3d983632bd
+_
+java:S1116`"Remove this empty statement.(öÖ«£8·©¬ë2J$3871ee7f-fb78-48be-b5bd-2b84c1933644
 v
-java:S1068".Remove this unused "outputPath" private field.(¶•¯Êùÿÿÿÿ8Ì³šë2J$7c6682b3-1a1e-4a70-8298-0704fee972b9
+java:S1068".Remove this unused "outputPath" private field.(¶•¯Êùÿÿÿÿ8¸©¬ë2J$aee8012f-f291-4d98-b861-cff9e58aa069
