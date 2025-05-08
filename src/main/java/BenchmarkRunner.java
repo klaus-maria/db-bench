@@ -1,7 +1,10 @@
+import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class BenchmarkRunner {
 
@@ -20,14 +23,22 @@ public class BenchmarkRunner {
     }
 
     public void run() throws InterruptedException {
+        // verwaltet asynchrone prozesse/threads. scheinbar best practice?
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);
+        // Concurreny-Safe variablen
+        AtomicLong opCount = new AtomicLong(0);
+        Queue<Long> latencies = new ConcurrentLinkedDeque<>();
+        double throughput = 0.0;
 
         database.connect();
         database.loadTestData();
 
+        // jeder Thread stellt einen Nutzer dar, der Anfragen an die Datenbank schickt
+        long startTime = System.nanoTime();
         for(int i = 0; i < threadCount; i++){
             executor.submit( () -> {
                 for (int r = 0; r < recordCount / threadCount; r++) {
+                    long opStart = System.nanoTime();
                     switch (workload.toLowerCase()) {
                         case "read" -> database.read();
                         case "write" -> database.write();
@@ -36,11 +47,17 @@ public class BenchmarkRunner {
                             else database.write();
                         }
                     }
+                    long latency = System.nanoTime() - opStart;
+                    latencies.add(latency);
+                    opCount.incrementAndGet();
                 }
             });
         }
 
         executor.shutdown();
         executor.awaitTermination(1, TimeUnit.MINUTES);
+
+        long runningTime = System.nanoTime() - startTime;
+        throughput = opCount.get() / (runningTime / 1e9); // division durch 1e9 um auf Sekunden
     }
 }
