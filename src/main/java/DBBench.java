@@ -1,14 +1,16 @@
+import databases.Database;
+import databases.TestDB;
 import org.apache.commons.cli.*;
 public class DBBench {
     public static void main(String[] args) throws Exception {
 
         // CLI Argumente
         Options options = new Options();
-        options.addOption("db", true, "Database type (e.g., mongo, couchbase, orientdb)");
-        options.addOption("host", true, "Database host");
-        options.addOption("port", true, "Database port");
-        options.addOption("username", true, "Database username");
-        options.addOption("password", true, "Database password");
+        options.addOption("db", true, "databases.Database type (e.g., mongo, couchbase, orientdb)");
+        options.addOption("host", true, "databases.Database host");
+        options.addOption("port", true, "databases.Database port");
+        options.addOption("username", true, "databases.Database username");
+        options.addOption("password", true, "databases.Database password");
         options.addOption("threads", true, "Number of threads");
         options.addOption("records", true, "Number of mock records");
         options.addOption("workload", true, "Workload type (read, write, mixed)");

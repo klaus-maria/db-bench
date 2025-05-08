@@ -1,14 +1,10 @@
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 import com.sun.management.OperatingSystemMXBean;
+import databases.Database;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -45,7 +41,7 @@ public class BenchmarkRunner {
 
 
         database.connect();
-        database.loadTestData();
+        database.loadTestData(recordCount);
 
         systemMonitoring(monitor);
 
@@ -57,10 +53,10 @@ public class BenchmarkRunner {
                     long opStart = System.nanoTime();
                     switch (workload.toLowerCase()) {
                         case "read" -> database.read();
-                        case "write" -> database.write();
+                        case "write" -> database.write(generateRecord());
                         default -> {
                             if (new Random().nextBoolean()) database.read();
-                            else database.write();
+                            else database.write(generateRecord());
                         }
                     }
                     long latency = System.nanoTime() - opStart;
@@ -98,6 +94,10 @@ public class BenchmarkRunner {
         });
 
         monitor.start();
+    }
+
+    private Map<String, Object> generateRecord(){
+        return new HashMap<>();
     }
 
     private void export() {
