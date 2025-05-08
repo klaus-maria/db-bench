@@ -1,5 +1,13 @@
 
-V
-java:S1220""Move this file to a named package.J$34891aaf-6db5-4bdb-a30e-b9582d7fbfd4
-Ä
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Çµí‘8„¶ï‹ë2J$3e4aa4ab-2f9f-483a-943f-4e92a32d8951
+Ž
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(éóõÞ8»ï¬Œë2J$c5cc6b51-08a0-47f5-b0e5-2b105f2ca89f
+]
+java:S1220""Move this file to a named package.8¼ï¬Œë2J$aa03921c-ade5-45ac-8af5-9651358b38f4
+€
+java:S1854"8Remove this useless assignment to local variable "port".(–æÀ·úÿÿÿÿ8¿ï¬Œë2J$7ad8b6be-7403-4419-9716-28b89edca165
+€
+java:S1854"8Remove this useless assignment to local variable "host".(‹³¥‡úÿÿÿÿ8¿ï¬Œë2J$d5321d99-1c5e-48c5-9f09-d3d4d649cdb3
+q
+java:S1481")Remove this unused "host" local variable.(‹³¥‡úÿÿÿÿ8Äï¬Œë2J$48e4dff1-751a-4566-b41e-12788fb24252
+q
+java:S1481")Remove this unused "port" local variable.(–æÀ·úÿÿÿÿ8Äï¬Œë2J$7323018a-2e45-4874-bd17-af1f46d5b7bb

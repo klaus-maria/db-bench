@@ -1,0 +1,15 @@
+
+]
+java:S1220""Move this file to a named package.8¡Ø£Œë2J$597474ad-5e9e-4f97-add3-3a1eecdf5317
+Ä
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“–ış8¥Ø£Œë2J$b15fcd5a-60f6-4077-ae9a-533eacef0694
+t
+java:S1068",Remove this unused "database" private field.(şÌË´şÿÿÿÿ8¨Ø£Œë2J$09da05de-07ed-49f1-b10d-73ae900745c6
+r
+java:S1068"/Remove this unused "threadCount" private field.(çŠÊŞ8©Ø£Œë2J$9fafb6e5-5025-4760-8810-df1f25a351de
+r
+java:S1068"/Remove this unused "recordCount" private field.(’·•8©Ø£Œë2J$ecddec6f-be19-4c69-94e3-64d1112d2b2e
+t
+java:S1068",Remove this unused "workload" private field.(ÄÛ’şÿÿÿÿ8©Ø£Œë2J$d408ba44-ead7-4beb-b87c-32cd520358dd
+v
+java:S1068".Remove this unused "outputPath" private field.(¶•¯Êùÿÿÿÿ8©Ø£Œë2J$73809587-5dcc-464a-9a04-c0bd4290ddfd
