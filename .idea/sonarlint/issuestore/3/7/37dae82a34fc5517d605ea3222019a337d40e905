@@ -1,13 +1,13 @@
 
 
-java:S1301%"KReplace this "switch" statement by "if" statements to increase readability.(ισυή8ζϊώ¤λ2J$1d111553-9415-40dc-a451-efc55dc90361
+java:S1301%"KReplace this "switch" statement by "if" statements to increase readability.(ισυή8ζϊώ¤λ2J$c5d719b4-2df7-44b6-9673-9a2c846103c3
 ]
-java:S1220""Move this file to a named package.8ηϊώ¤λ2J$fe934a6f-94c8-4c26-a0c1-76ef7d4e5d28
+java:S1220""Move this file to a named package.8ηϊώ¤λ2J$6a38d1ea-9383-489d-8aa3-56707d998c4e
 €
-java:S1854"8Remove this useless assignment to local variable "port".(–ζΐ·ϊÿÿÿÿ8ιϊώ¤λ2J$167e1bd1-4c7e-4c3c-b824-635599672b25
+java:S1854"8Remove this useless assignment to local variable "port".(–ζΐ·ϊÿÿÿÿ8ιϊώ¤λ2J$9e97ab80-ad55-4866-8c95-9f5469b2303c
 €
-java:S1854"8Remove this useless assignment to local variable "host".(‹³¥‡ϊÿÿÿÿ8ιϊώ¤λ2J$15c75ea9-05ea-41ed-b652-6616143e6537
+java:S1854"8Remove this useless assignment to local variable "host".(‹³¥‡ϊÿÿÿÿ8ιϊώ¤λ2J$87af7bae-e3c6-4f9e-b66f-6708982666ba
 q
-java:S1481")Remove this unused "host" local variable.(‹³¥‡ϊÿÿÿÿ8νϊώ¤λ2J$a3e85634-38b3-4422-b20b-590122320475
+java:S1481")Remove this unused "host" local variable.(‹³¥‡ϊÿÿÿÿ8νϊώ¤λ2J$6b69f109-2afa-46d7-b80f-cd32a58ee35a
 q
-java:S1481")Remove this unused "port" local variable.(–ζΐ·ϊÿÿÿÿ8νϊώ¤λ2J$1a91e622-93d8-421a-8040-71701ef725d2
+java:S1481")Remove this unused "port" local variable.(–ζΐ·ϊÿÿÿÿ8νϊώ¤λ2J$6be4652a-c509-4ae9-860a-ec19a66e81d9

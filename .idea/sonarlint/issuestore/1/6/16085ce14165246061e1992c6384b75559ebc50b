@@ -1,13 +1,18 @@
 
-Н	java:S112f"FDefine and throw a dedicated exception instead of using a generic one.(╥В╥щ№    8шаюды2J$42390adf-0985-40a6-ac60-6345d92d11a3
+Н	java:S112m"FDefine and throw a dedicated exception instead of using a generic one.(╥В╥щ№    8З┤Ъпы2J$a844215a-9ba6-49c4-a5d5-32a511c4a3c0
+О	java:S112╢"FDefine and throw a dedicated exception instead of using a generic one.(╥В╥щ№    8З┤Ъпы2J$aab591a5-0052-4513-86d4-690e0b541749
+x
+java:S3740У"/Provide the parametrized type for this generic.(░У╠д■    8З┤Ъпы2J$ec078c83-8206-4bff-b2be-1f3f82828836
 ]
-java:S1220""Move this file to a named package.8ыаюды2J$e7d395cb-9fb9-4d37-90a7-ae1cb60f0f59
+java:S1220""Move this file to a named package.8Й┤Ъпы2J$a0c67377-745e-4a4e-b22f-335da6b8f177
 a
-java:S2119A"Save and re-use this "Random".(■У└Л8Ўаюды2J$48ce44c6-df75-407e-9562-e5f7cea234c5
+java:S2119H"Save and re-use this "Random".(■У└Л8Ы┤Ъпы2J$f524be22-42ce-4368-a9a2-29fcdb5457c3
 б
-java:S2142e"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(фа╣А8√аюды2J$d1e2e359-af65-4257-8857-d7dd3b897115
-n	java:S106Ж"+Replace this use of System.out by a logger.(рК▄я8■аюды2J$76247729-7737-4054-8271-b26042a0d008
+java:S2142l"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(фа╣А8Я┤Ъпы2J$3fcc748f-43bb-4020-b98a-71a9e5168c34
+n	java:S106Н"+Replace this use of System.out by a logger.(рК▄я8в┤Ъпы2J$456635cd-7a6a-4119-9df5-1a4bc505c12e
+g
+java:S2119Ч"Save and re-use this "Random".(ЪЯлэ°    8░┤Ъпы2J$24e645a2-2ec7-49bb-b274-abb14e740916
 `
-java:S1116М"Remove this empty statement.(Ў╓лг8 аюды2J$788a8ec0-264c-4088-b00e-0eaaf226f080
+java:S1116║"Remove this empty statement.(Ў╓лг8┤┤Ъпы2J$007f4132-ad75-4a85-b41b-89d700abaefd
 y
-java:S1068"1Remove this unused "documentSizes" private field.(╔ф─п·    8 аюды2J$bf3e5b2f-7f64-4f66-873a-4f69ecfcff19
+java:S1068""1Remove this unused "documentSizes" private field.(ЛЁ▄т·    8┤┤Ъпы2J$61a96a93-cf84-4255-8665-93d2d1004aa3
