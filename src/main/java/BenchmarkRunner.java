@@ -31,7 +31,7 @@ public class BenchmarkRunner {
     AtomicLong opCount = new AtomicLong(0);
     private double runningTime = 0;
     private Queue<Long> latencies = new ConcurrentLinkedDeque<>();
-    private List<Integer> documentSizes = new ArrayList<>();
+    private List<Integer> documentSizes = new ArrayList<>(); // in bytes
     AtomicInteger currentDocID = new AtomicInteger(0);
 
 
@@ -52,8 +52,6 @@ public class BenchmarkRunner {
 
 
         database.connect();
-
-        //database.loadTestData(recordCount, fixedRecordSize, maxRecordSize); not needed?
 
         systemMonitoring(monitor);
 
@@ -132,6 +130,12 @@ public class BenchmarkRunner {
             }
 
             writer.println();
+            writer.println("doc_sizes_kb");
+            for(Integer doc: documentSizes) {
+                writer.printf("%.2f%n", doc /1024.0);
+            }
+
+            writer.println();
             writer.println("summary");
             writer.println("operation_type,thread_count,total_throughput_ops_per_sec,running_time_sec,total_ops");
             writer.printf("%s,%d,%.2f,%.2f%n", workload, threadCount, throughput, runningTime);
@@ -144,7 +148,7 @@ public class BenchmarkRunner {
         }
     }
 
-    private Map generateDoc(){
+    private Map<String, Object> generateDoc(){
         Map<String, Object> document = new HashMap<>();
         Integer identifier = currentDocID.getAndIncrement();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -176,6 +180,7 @@ public class BenchmarkRunner {
                 difference -= 1;
             }
             document.put("padding", padding);
+            documentSizes.add(jsonBytes.length + padding.size());
             return document;
 
         } catch (JsonProcessingException e) {
