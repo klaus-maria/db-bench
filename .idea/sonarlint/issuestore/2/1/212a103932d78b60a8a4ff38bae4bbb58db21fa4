@@ -1,6 +1,8 @@
 
-Ä
-java:S1186	"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‰¦àı8ş¤¢£ë2J$efd9a233-1604-4d3d-8cbe-44ab5e1f691c
+m	java:S106
+"+Replace this use of System.out by a logger.(¿áâÎ8‚¥¢£ë2J$6390b1ab-b345-4bef-b66c-ed0a5c8efe0d
 ‚
-java:S6213":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8‚¥¢£ë2J$d015b39a-9bd8-409c-9039-d871ac9d0d10
-r	java:S106"+Replace this use of System.out by a logger.(İ¯ïÔûÿÿÿÿ8‚¥¢£ë2J$9d164b6c-53cf-4b82-b867-3887be168fd7
+java:S6213":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8‚¥¢£ë2J$8f9db39a-1abd-4d7d-84ee-14bb9d75544f
+r	java:S106"+Replace this use of System.out by a logger.(İ¯ïÔûÿÿÿÿ8Øé¯ë2J$28dd5d75-c6f4-47c1-a10e-43411e6c5d6f
+r	java:S106"+Replace this use of System.out by a logger.(ÁÒ‚ùÿÿÿÿ8€Éé¯ë2J$91aea0a0-97a0-4bed-9311-1f703346c538
+m	java:S106"+Replace this use of System.out by a logger.(°¸°ª8Â«ê¯ë2J$a1b70a8f-e1fb-45cb-9733-ffa9ee914e5a

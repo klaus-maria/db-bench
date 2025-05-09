@@ -9,5 +9,9 @@ S
 #src/main/java/databases/TestDB.java,2\1\212a103932d78b60a8a4ff38bae4bbb58db21fa4
 U
 %src/main/java/databases/Database.java,6\6\66e35626b4c0d89dc0faf76fa6b80a309238d5b2
-L
-src/main/java/Generator.java,3\b\3b91eda2639318ce788de799ddf91ca998890bb9
+C
+settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4

@@ -65,14 +65,8 @@ public class BenchmarkRunner {
                         case "read" -> database.read();
                         case "write" -> database.write(generateDoc());
                         case "aggregate" -> database.aggregate();
-                        case "mixed" -> {
-                            // falls mixed workload, wähle zufällige operation
-                            switch (new Random().nextInt(5)){
-                                case 0 -> database.read();
-                                case 1 -> database.write(generateDoc());
-                                default -> database.aggregate();
-                            }
-                        }
+                        case "mixed" -> randomOperation();
+                        // falls mixed workload, wähle zufällige operation
                         default -> throw new IllegalArgumentException();
                     }
                     long latency = System.nanoTime() - opStart;
@@ -92,6 +86,8 @@ public class BenchmarkRunner {
         export();
     }
 
+    private record SystemSnapshot(long timestamp, double cpuLoad, double cpuProcessLoad, long usedMemory){};
+
     private void systemMonitoring(AtomicBoolean running){
         Thread monitor = new Thread(() -> {
             OperatingSystemMXBean os = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
@@ -110,6 +106,14 @@ public class BenchmarkRunner {
         });
 
         monitor.start();
+    }
+
+    private void randomOperation(){
+        switch (new Random().nextInt(5)) {
+            case 0 -> database.read();
+            case 1 -> database.write(generateDoc());
+            default -> database.aggregate();
+        }
     }
 
     private void export() {
@@ -188,5 +192,14 @@ public class BenchmarkRunner {
         }
     }
 
-    private record SystemSnapshot(long timestamp, double cpuLoad, double cpuProcessLoad, long usedMemory){};
+    /*
+    private String generateSearch() {
+
+    }
+    private String generateCalc(){
+
+    }
+
+     */
+
 }

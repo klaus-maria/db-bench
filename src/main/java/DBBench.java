@@ -29,7 +29,7 @@ public class DBBench {
         boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "false"));
         int maxSize = Integer.parseInt(cmd.getOptionValue("maxSize", "10"));
         String workload = cmd.getOptionValue("workload", "mixed");
-        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "/Desktop/DBBench/benchmark.csv");
+        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "\\Desktop\\DBBench\\benchmark.csv");
 
 
         Database db;
@@ -38,7 +38,7 @@ public class DBBench {
             case "test" -> db = new TestDB();
             default -> throw new IllegalArgumentException("Unsupported DB: " + dbType);
         }
-
+        System.out.printf("Params: %s%n", outputPath);
         BenchmarkRunner benchmark = new BenchmarkRunner(db, threads, records, fixed, maxSize, workload, outputPath);
         benchmark.run();
     }

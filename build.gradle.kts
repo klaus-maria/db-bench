@@ -1,5 +1,6 @@
 plugins {
-    id("java")
+    java
+    application
 }
 
 group = "org.example"
@@ -19,3 +20,10 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+
+//sourceCompatibility = JavaVersion.VERSION_18
+application {
+    mainClass.set("DBBench")
+}
+
