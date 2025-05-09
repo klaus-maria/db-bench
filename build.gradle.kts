@@ -21,7 +21,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
-
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(18))
+    }
+}
 //sourceCompatibility = JavaVersion.VERSION_18
 application {
     mainClass.set("DBBench")
