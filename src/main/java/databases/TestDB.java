@@ -11,7 +11,7 @@ public class TestDB implements Database {
     }
 
     @Override
-    public void loadTestData(int count) {
+    public void loadTestData(int count, boolean fixedSize, int maxSize) {
         for(int i = 0; i < count; i++){
             System.out.println("inserted record");
         }
@@ -26,4 +26,11 @@ public class TestDB implements Database {
     public Map<String, Object> read() {
         return new HashMap<>();
     }
+
+    @Override
+    public Object aggregate(){
+        return new Object();
+    }
+
+
 }

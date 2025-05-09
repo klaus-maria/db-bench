@@ -1,3 +1,5 @@
 
 }
-java:S6213	":Rename this variable to not match a restricted identifier.(ÔÎ¸¤8ÄÿÀë2J$172d8b32-4040-4cf6-88ea-fa0322f6bcd6
+java:S6213":Rename this variable to not match a restricted identifier.(ÔÎ¸¤8á¡¾£ë2J$c649db11-473a-4901-8560-65c0ad456d4b
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8â¡¾£ë2J$8dd411ea-979a-4ca9-8ba5-e857e12fa81f

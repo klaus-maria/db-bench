@@ -1,11 +1,13 @@
 
-	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·–Òë2J$b2644921-0abe-432e-879c-5f83129ddf7f
+	java:S112f"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8è î¤ë2J$42390adf-0985-40a6-ac60-6345d92d11a3
 ]
-java:S1220""Move this file to a named package.8¹–Òë2J$daef9206-e69b-4d65-b342-44991dee6658
+java:S1220""Move this file to a named package.8ë î¤ë2J$e7d395cb-9fb9-4d37-90a7-ae1cb60f0f59
 a
-java:S2119:"Save and re-use this "Random".(ÇÜë½8Å–Òë2J$2782ecde-1770-4e4c-8573-ea94c8449fdd
+java:S2119A"Save and re-use this "Random".(ş“À‹8ö î¤ë2J$48ce44c6-df75-407e-9562-e5f7cea234c5
 ¡
-java:S2142Z"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8È–Òë2J$d697d701-02b6-4052-9417-81dd1f5ccbc0
-m	java:S106"+Replace this use of System.out by a logger.(àŠÜï8Ì–Òë2J$d01363db-7b44-4d41-83e7-08b8ba51fac2
+java:S2142e"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8û î¤ë2J$d1e2e359-af65-4257-8857-d7dd3b897115
+n	java:S106†"+Replace this use of System.out by a logger.(àŠÜï8ş î¤ë2J$76247729-7737-4054-8271-b26042a0d008
 `
-java:S1116…"Remove this empty statement.(öÖ«£8Í–Òë2J$5c430193-9ba1-4154-a91c-a3f06cf449f1
+java:S1116Œ"Remove this empty statement.(öÖ«£8ÿ î¤ë2J$788a8ec0-264c-4088-b00e-0eaaf226f080
+y
+java:S1068"1Remove this unused "documentSizes" private field.(ÉäÄ¯úÿÿÿÿ8ÿ î¤ë2J$bf3e5b2f-7f64-4f66-873a-4f69ecfcff19

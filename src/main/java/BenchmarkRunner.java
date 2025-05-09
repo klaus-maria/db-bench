@@ -17,6 +17,8 @@ public class BenchmarkRunner {
     private final Database database;
     private final int threadCount;
     private final int recordCount;
+    private final boolean fixedRecordSize;
+    private final int maxRecordSize;
     private final String workload;
     private final String outputPath;
     private List<SystemSnapshot> snapshots = new ArrayList<>();
@@ -24,12 +26,15 @@ public class BenchmarkRunner {
     AtomicLong opCount = new AtomicLong(0);
     double runningTime = 0;
     Queue<Long> latencies = new ConcurrentLinkedDeque<>();
+    private final List<Integer> documentSizes = new ArrayList<>();
 
 
-    public BenchmarkRunner(Database database, int threadCount, int recordCount, String workload, String outputPath) {
+    public BenchmarkRunner(Database database, int threadCount, int recordCount, boolean fixedRecordSize, int maxRecordSize, String workload, String outputPath) {
         this.database = database;
         this.threadCount = threadCount;
         this.recordCount = recordCount;
+        this.fixedRecordSize = fixedRecordSize;
+        this.maxRecordSize = maxRecordSize;
         this.workload = workload;
         this.outputPath = outputPath;
     }
@@ -41,7 +46,7 @@ public class BenchmarkRunner {
 
 
         database.connect();
-        database.loadTestData(recordCount);
+        database.loadTestData(recordCount, fixedRecordSize, maxRecordSize);
 
         systemMonitoring(monitor);
 
@@ -53,11 +58,17 @@ public class BenchmarkRunner {
                     long opStart = System.nanoTime();
                     switch (workload.toLowerCase()) {
                         case "read" -> database.read();
-                        case "write" -> database.write(generateRecord());
-                        default -> {
-                            if (new Random().nextBoolean()) database.read();
-                            else database.write(generateRecord());
+                        case "write" -> database.write(Generator.generateRecord());
+                        case "aggregate" -> database.aggregate();
+                        case "mixed" -> {
+                            // falls mixed workload, wähle zufällige operation
+                            switch (new Random().nextInt(5)){
+                                case 0 -> database.read();
+                                case 1 -> database.write(Generator.generateRecord());
+                                default -> database.aggregate();
+                            }
                         }
+                        default -> throw new IllegalArgumentException();
                     }
                     long latency = System.nanoTime() - opStart;
                     latencies.add(latency);
@@ -94,10 +105,6 @@ public class BenchmarkRunner {
         });
 
         monitor.start();
-    }
-
-    private Map<String, Object> generateRecord(){
-        return new HashMap<>();
     }
 
     private void export() {
