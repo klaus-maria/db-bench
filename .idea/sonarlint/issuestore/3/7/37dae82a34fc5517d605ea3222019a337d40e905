@@ -1,4 +1,6 @@
 
-7
-java:S1220""Move this file to a named package.8êû¤©ì2
-L	java:S106-"+Replace this use of System.out by a logger.(ø¸¥§úÿÿÿÿ8óû¤©ì2
+f
+java:S1192"IDefine a constant instead of duplicating this literal "password" 3 times.(¿Õ§˜8²×‚«ì2
+]
+java:S1220""Move this file to a named package.8êû¤©ì2J$aa3ef85f-8528-4697-a8ca-cce1ec79eb79
+r	java:S106-"+Replace this use of System.out by a logger.(ø¸¥§úÿÿÿÿ8óû¤©ì2J$a5cd495a-592b-4a50-8651-1937f960136c

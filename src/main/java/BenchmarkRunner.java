@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.management.OperatingSystemMXBean;
 import databases.Database;
+import databases.QueryRecord;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -51,6 +52,7 @@ public class BenchmarkRunner {
 
 
         database.connect();
+        Thread.sleep(1000);
 
         systemMonitoring(monitor);
 
@@ -103,7 +105,7 @@ public class BenchmarkRunner {
                 long timestamp = System.currentTimeMillis();
                 snapshots.add(new SystemSnapshot(timestamp, cpuLoad, cpuLoadProcess, usedMemory));
                 try {
-                    Thread.sleep(100); // system nur jede halbe sekunde checken
+                    Thread.sleep(500); // system nur jede halbe sekunde checken
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -204,24 +206,22 @@ public class BenchmarkRunner {
     }
 
 
-    private queryRecord generateSearch() {
+    private QueryRecord generateSearch() {
         switch(new Random().nextInt(0, 3)){
             // finde bestimmten wert von dokument wo aussage zutrifft
             case 0 -> {
-                return new queryRecord(null, "name", " where value < 1400 && value > -567", "query");
+                return new QueryRecord(null, "name", " where value < 1400 && value > -567", "query");
             }
             // berechne wert wo zutrifft
             case 1 -> {
-                return new queryRecord(null, "details.list", " where details.active == true", "aggregate");
+                return new QueryRecord(null, "details.list", " where details.active == true", "aggregate");
             }
             // finde dokument
             default -> {
-                return new queryRecord(Integer.toString(new Random().nextInt(0, currentDocID.get())), null, null, "find");
+                return new QueryRecord(Integer.toString(new Random().nextInt(0, currentDocID.get())), null, null, "find");
             }
         }
     }
-
-    public record queryRecord(String id, String field, String condition, String type){};
 
 
 }

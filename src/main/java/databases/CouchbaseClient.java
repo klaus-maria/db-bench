@@ -2,9 +2,7 @@ package databases;
 
 import com.couchbase.client.java.*;
 import com.couchbase.client.java.json.JsonObject;
-import com.couchbase.client.java.kv.*;
 
-import java.util.Collections;
 import java.util.Map;
 
 public class CouchbaseClient implements Database {
@@ -29,25 +27,29 @@ public class CouchbaseClient implements Database {
         cluster = Cluster.connect(host, username, password);
         bucket = cluster.bucket(instance);
         collection = bucket.defaultCollection();
+        System.out.println("connected to couchbase");
     }
 
     @Override
     public void write(Map<String, Object> record) {
-        collection.insert(record.get("name").toString(), record);
+        collection.insert(record.get("name").toString(), JsonObject.from(record));
+        System.out.println("document inserted to couchbase");
     }
 
     @Override
-    public void read(BenchmarkRunner.queryRecord query) {
+    public void read(QueryRecord query) {
         switch (query.type()){
             case "find" -> collection.get(query.id());
             case "query" -> cluster.query("select " + query.field() + " from " + instance + query.condition());
             case "aggregate" -> cluster.query("select count(" + query.field() + ") from " + instance + query.condition());
             default -> throw new IllegalArgumentException("Invalid Query Type");
         }
+        System.out.println("query performed on couchbase");
     }
 
     @Override
     public void disconnect() {
         cluster.disconnect();
+        System.out.println("disconnected from couchbase");
     }
 }

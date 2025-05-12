@@ -1,6 +1,5 @@
 package databases;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class TestDB implements Database {
@@ -16,7 +15,7 @@ public class TestDB implements Database {
     }
 
     @Override
-    public void read(BenchmarkRunner.queryRecord q) {
+    public void read(QueryRecord q) {
         System.out.println(q.toString());
     }
 

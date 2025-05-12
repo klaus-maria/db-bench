@@ -24,9 +24,9 @@ public class DBBench {
 
         String dbType = cmd.getOptionValue("db");
         String host = cmd.getOptionValue("host", "localhost");
-        String instance = cmd.getOptionValue("instance", "27017");
-        String username = cmd.getOptionValue("username");
-        String password = cmd.getOptionValue("password");
+        String instance = cmd.getOptionValue("instance", "test");
+        String username = cmd.getOptionValue("username", "test");
+        String password = cmd.getOptionValue("password", "password");
         int threads = Integer.parseInt(cmd.getOptionValue("threads", "1"));
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
         boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "false"));
