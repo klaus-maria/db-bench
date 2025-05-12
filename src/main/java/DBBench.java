@@ -1,3 +1,4 @@
+import databases.CouchbaseClient;
 import databases.Database;
 import databases.TestDB;
 import org.apache.commons.cli.*;
@@ -8,7 +9,7 @@ public class DBBench {
         Options options = new Options();
         options.addOption("db", true, "databases.Database type (e.g., mongo, couchbase, orientdb)");
         options.addOption("host", true, "databases.Database host");
-        options.addOption("port", true, "databases.Database port");
+        options.addOption("instance", true, "databases.Database instance");
         options.addOption("username", true, "databases.Database username");
         options.addOption("password", true, "databases.Database password");
         options.addOption("threads", true, "Number of threads");
@@ -23,7 +24,9 @@ public class DBBench {
 
         String dbType = cmd.getOptionValue("db");
         String host = cmd.getOptionValue("host", "localhost");
-        int port = Integer.parseInt(cmd.getOptionValue("port", "27017"));
+        String instance = cmd.getOptionValue("instance", "27017");
+        String username = cmd.getOptionValue("username");
+        String password = cmd.getOptionValue("password");
         int threads = Integer.parseInt(cmd.getOptionValue("threads", "1"));
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
         boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "false"));
@@ -36,10 +39,12 @@ public class DBBench {
         // füge datenbanken hinzu -> erstellt neuen Driver
         switch (dbType.toLowerCase()) {
             case "test" -> db = new TestDB();
+            case "couchbase" -> db = new CouchbaseClient(host, username, password, instance);
             default -> throw new IllegalArgumentException("Unsupported DB: " + dbType);
         }
         System.out.printf("Params: %s%n", outputPath);
         BenchmarkRunner benchmark = new BenchmarkRunner(db, threads, records, fixed, maxSize, workload, outputPath);
         benchmark.run();
+        db.disconnect();
     }
 }

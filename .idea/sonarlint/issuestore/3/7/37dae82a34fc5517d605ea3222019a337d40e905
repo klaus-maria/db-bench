@@ -1,14 +1,4 @@
 
-Ž
-java:S1301%"KReplace this "switch" statement by "if" statements to increase readability.(éóõÞ8Áá¿²ë2J$5dd0895f-843c-46be-bb96-9e751f421c2b
-]
-java:S1220""Move this file to a named package.8Âá¿²ë2J$906001e0-ecbf-4362-acbd-e181cf4570bb
-€
-java:S1854"8Remove this useless assignment to local variable "port".(–æÀ·úÿÿÿÿ8Ïá¿²ë2J$adc30d89-80b5-4661-ab1b-49aa688c80a4
-€
-java:S1854"8Remove this useless assignment to local variable "host".(‹³¥‡úÿÿÿÿ8Ïá¿²ë2J$b06d31d8-a0a9-4d47-98d6-1c1c3df902d3
-q
-java:S1481")Remove this unused "host" local variable.(‹³¥‡úÿÿÿÿ8Öá¿²ë2J$efec0679-718b-4859-9f08-2f1320343448
-q
-java:S1481")Remove this unused "port" local variable.(–æÀ·úÿÿÿÿ8×á¿²ë2J$1371fcec-5b23-4d6c-b3ad-c93a844bb21b
-r	java:S106)"+Replace this use of System.out by a logger.(ø¸¥§úÿÿÿÿ8Ûá¿²ë2J$f0b23313-b5a6-4e50-9c77-5805f4554a6e
+7
+java:S1220""Move this file to a named package.8êû¤©ì2
+L	java:S106-"+Replace this use of System.out by a logger.(ø¸¥§úÿÿÿÿ8óû¤©ì2

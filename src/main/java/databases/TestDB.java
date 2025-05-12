@@ -16,15 +16,13 @@ public class TestDB implements Database {
     }
 
     @Override
-    public Map<String, Object> read() {
-        System.out.println("read op");
-        return new HashMap<>();
+    public void read(BenchmarkRunner.queryRecord q) {
+        System.out.println(q.toString());
     }
 
     @Override
-    public Object aggregate(){
-        System.out.println("agg op");
-        return new Object();
+    public void disconnect() {
+        System.out.println("disconnect");
     }
 
 

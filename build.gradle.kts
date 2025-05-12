@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation("commons-cli:commons-cli:1.9.0")
+    implementation("com.couchbase.client:java-client:3.8.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")

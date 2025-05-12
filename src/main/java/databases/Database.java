@@ -9,9 +9,9 @@ public interface Database {
     void connect();
     // write a document to database or update a document field
     void write(Map<String, Object> record);
-    // retrieve a document or read a field
-    Map<String, Object> read();
-    // retrieve a calculated value derived from multiple documents
-    Object aggregate();
+    // queries for a document or value
+    void read(BenchmarkRunner.queryRecord q);
+
+    void disconnect();
 
 }

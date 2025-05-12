@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.management.OperatingSystemMXBean;
 import databases.Database;
 
-import java.lang.runtime.ObjectMethods;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +30,7 @@ public class BenchmarkRunner {
     AtomicLong opCount = new AtomicLong(0);
     private double runningTime = 0;
     private Queue<Long> latencies = new ConcurrentLinkedDeque<>();
-    private List<Integer> documentSizes = new ArrayList<>(); // in bytes
+    private List<Double> documentSizes = new ArrayList<>(); // in Kilobytes
     AtomicInteger currentDocID = new AtomicInteger(0);
 
 
@@ -62,10 +61,15 @@ public class BenchmarkRunner {
                 for (int r = 0; r < recordCount / threadCount; r++) {
                     long opStart = System.nanoTime();
                     switch (workload.toLowerCase()) {
-                        case "read" -> database.read();
+                        case "read" -> database.read(generateSearch());
                         case "write" -> database.write(generateDoc());
-                        case "aggregate" -> database.aggregate();
-                        case "mixed" -> randomOperation();
+                        case "mixed" -> {
+                            if ((new Random().nextInt(0, 1) == 1)) {
+                                database.write(generateDoc());
+                            } else {
+                                database.read(generateSearch());
+                            }
+                        }
                         // falls mixed workload, wähle zufällige operation
                         default -> throw new IllegalArgumentException();
                     }
@@ -90,6 +94,7 @@ public class BenchmarkRunner {
 
     private void systemMonitoring(AtomicBoolean running){
         Thread monitor = new Thread(() -> {
+            System.out.println("start monitor");
             OperatingSystemMXBean os = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
             while(running.get()){
                 double cpuLoad = os.getCpuLoad() * 100; // * 100 um auf prozent zu kommen
@@ -98,7 +103,7 @@ public class BenchmarkRunner {
                 long timestamp = System.currentTimeMillis();
                 snapshots.add(new SystemSnapshot(timestamp, cpuLoad, cpuLoadProcess, usedMemory));
                 try {
-                    Thread.sleep(1000); // system nur jede sekunde checken
+                    Thread.sleep(100); // system nur jede halbe sekunde checken
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -108,18 +113,11 @@ public class BenchmarkRunner {
         monitor.start();
     }
 
-    private void randomOperation(){
-        switch (new Random().nextInt(5)) {
-            case 0 -> database.read();
-            case 1 -> database.write(generateDoc());
-            default -> database.aggregate();
-        }
-    }
-
     private void export() {
         try (PrintWriter writer = new PrintWriter(outputPath)) {
             writer.println("timestamp,cpu_load_percent,cpu_load_process_percent,used_memory_mb");
             for (SystemSnapshot snap : snapshots) {
+                System.out.println(snap.toString());
                 writer.printf("%d,%.2f,%.2f,%.2f%n",
                         snap.timestamp,
                         snap.cpuLoad,
@@ -135,14 +133,14 @@ public class BenchmarkRunner {
 
             writer.println();
             writer.println("doc_sizes_kb");
-            for(Integer doc: documentSizes) {
-                writer.printf("%.2f%n", doc /1024.0);
+            for(Double doc: documentSizes) {
+                writer.printf("%.2f%n", doc);
             }
 
             writer.println();
             writer.println("summary");
             writer.println("operation_type,thread_count,total_throughput_ops_per_sec,running_time_sec,total_ops");
-            writer.printf("%s,%d,%.2f,%.2f%n", workload, threadCount, throughput, runningTime);
+            writer.printf("%s,%d,%.2f,%.2f,%d%n", workload, threadCount, throughput, runningTime, opCount.get());
 
             writer.flush();
 
@@ -165,7 +163,7 @@ public class BenchmarkRunner {
         document.put("value", rand.nextInt());
 
         Map<String, Object> details = new HashMap<>();
-        Object[] list = {"test".repeat(rand.nextInt(0,100))};
+        Object[] list = {"test".repeat(rand.nextInt(50,100))};
         details.put("ip", "192.168.123." +  rand.nextInt(0, 256));
         details.put("os", "windows");
         details.put("active", rand.nextBoolean());
@@ -176,15 +174,28 @@ public class BenchmarkRunner {
         // document auf gewünschte größe bringen
         try {
             byte[] jsonBytes = objectMapper.writeValueAsBytes(document);
-            int difference = maxRecordSize * 1024 - jsonBytes.length; //convert maxrecordsize from Kb to b
+            int difference = (maxRecordSize * 1000) - jsonBytes.length; //convert maxrecordsize from Kb to b
+            System.out.println(difference);
             // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen, oder beliebig viel bis fixedRecordSize=maxRecordSize
+            /*
             List<Byte> padding = new ArrayList<>();
+
             while (difference > 0 && (fixedRecordSize || rand.nextBoolean())) {
                 padding.add((byte) 0xa);
-                difference -= 1;
+                jsonBytes
             }
+
+             */
+
+
+            byte[] padding = new byte[difference];
+            Arrays.fill(padding, (byte) 0xa);
+            //rand.nextBytes(padding);
             document.put("padding", padding);
-            documentSizes.add(jsonBytes.length + padding.size());
+            byte[] paddingBytes = objectMapper.writeValueAsBytes(padding);
+            byte[] endBytes = objectMapper.writeValueAsBytes(document);
+            System.out.println("SIZE: " + endBytes.length);
+            documentSizes.add((jsonBytes.length + paddingBytes.length) / 1000.0);
             return document;
 
         } catch (JsonProcessingException e) {
@@ -192,14 +203,25 @@ public class BenchmarkRunner {
         }
     }
 
-    /*
-    private String generateSearch() {
 
+    private queryRecord generateSearch() {
+        switch(new Random().nextInt(0, 3)){
+            // finde bestimmten wert von dokument wo aussage zutrifft
+            case 0 -> {
+                return new queryRecord(null, "name", " where value < 1400 && value > -567", "query");
+            }
+            // berechne wert wo zutrifft
+            case 1 -> {
+                return new queryRecord(null, "details.list", " where details.active == true", "aggregate");
+            }
+            // finde dokument
+            default -> {
+                return new queryRecord(Integer.toString(new Random().nextInt(0, currentDocID.get())), null, null, "find");
+            }
+        }
     }
-    private String generateCalc(){
 
-    }
+    public record queryRecord(String id, String field, String condition, String type){};
 
-     */
 
 }
