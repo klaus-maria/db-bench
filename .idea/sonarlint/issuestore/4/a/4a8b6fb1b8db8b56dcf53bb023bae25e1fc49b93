@@ -1,10 +1,15 @@
 
 ˜
-java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8îÖëÁì2J$24f25615-c2ed-40b8-9b11-2490906a90da
-r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8òÖëÁì2J$ce567793-0708-461d-97e7-a5e802863bb1
+java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8Ë«„Èì2J$e7f21f9c-36d9-498a-afa4-2c6300266e28
+r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8Í«„Èì2J$e2d0b193-7ca0-43a0-b38d-2ce551d716ac
 }
-java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8óÖëÁì2J$32ccb537-fe79-4796-a5cb-d4f0647a2853
-r	java:S106'"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8óÖëÁì2J$cfce29c5-2c7a-4642-be4b-aad8a61497ac
-r	java:S106)"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8õÖëÁì2J$5e6830dd-ab26-4169-a53d-8526819d3f17
-m	java:S1065"+Replace this use of System.out by a logger.(ØõŠÔ8õÖëÁì2J$b54f579a-5e04-43f3-9b8a-967864ac1ead
-m	java:S106;"+Replace this use of System.out by a logger.(ÆÀÂú8¯îëÁì2J$cbf8a194-72fe-481d-880b-b69d9c3d51e7
+java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8Î«„Èì2J$2a16ef77-3372-43c8-af1f-3cf536603fec
+r	java:S106'"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8Î«„Èì2J$62433eac-8136-4cf3-9c57-c789d98d83e2
+r	java:S106)"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ï«„Èì2J$aa30e422-3b13-4b90-95ae-bb9342747a57
+m	java:S1066"+Replace this use of System.out by a logger.(¶Â¬»8Ğ«„Èì2J$f97fa0b4-2ab7-4f47-a68b-c9d990b2a74b
+r	java:S1068"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ğ«„Èì2J$c9c6524b-f36a-440c-9dee-960478f75aca
+m	java:S106?"+Replace this use of System.out by a logger.(ÆÀÂú8Ñ«„Èì2J$39c8c03f-deea-4dca-b54f-176732263aaa
+
+java:S1128"FRemove this unused import 'com.couchbase.client.java.json.JsonObject'.(¤ßí§ıÿÿÿÿ8Ò«„Èì2J$4bd0d845-5f71-4fa0-be74-1da9f68232b4
+r
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ü«„Èì2J$7c10782a-b1ec-47a7-9251-0d5ac6433152

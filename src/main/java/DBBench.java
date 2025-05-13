@@ -23,7 +23,7 @@ public class DBBench {
         CommandLine cmd = parser.parse(options, args);
 
         String dbType = cmd.getOptionValue("db");
-        String host = cmd.getOptionValue("host", "localhost");
+        String host = cmd.getOptionValue("host", "127.0.0.1");
         String instance = cmd.getOptionValue("instance", "test");
         String username = cmd.getOptionValue("username", "test");
         String password = cmd.getOptionValue("password", "password");

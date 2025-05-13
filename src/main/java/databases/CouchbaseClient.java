@@ -44,13 +44,17 @@ public class CouchbaseClient implements Database {
 
     @Override
     public void read(QueryRecord query) {
-        switch (query.type()){
-            case "find" -> collection.get(query.id());
-            case "query" -> cluster.query("select " + query.field() + " from " + instance + query.condition());
-            case "aggregate" -> cluster.query("select count(" + query.field() + ") from " + instance + query.condition());
-            default -> throw new IllegalArgumentException("Invalid Query Type");
+        try{
+            switch (query.type()){
+                case "find" -> collection.get(query.id());
+                case "query" -> cluster.query("SELECT " + query.field() + " from `" + instance + "`" + query.condition());
+                case "aggregate" -> cluster.query("SELECT count(" + query.field() + ") from " + instance + query.condition());
+                default -> throw new IllegalArgumentException("Invalid Query Type");
+            }
+            System.out.println("query " + query.type() + " performed on couchbase");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
         }
-        System.out.println("query performed on couchbase");
     }
 
     @Override

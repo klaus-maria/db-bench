@@ -170,7 +170,7 @@ public class BenchmarkRunner {
         // document auf gewünschte größe bringen
         try {
             document.put("name", identifier);
-            document.put("value", rand.nextInt());
+            document.put("someValue", rand.nextInt());
 
             ObjectNode details = objectMapper.createObjectNode();
             //String list = '[' + "'test',".repeat(rand.nextInt(50,100)) + "'test']";
@@ -218,15 +218,15 @@ public class BenchmarkRunner {
         switch(new Random().nextInt(0, 3)){
             // finde bestimmten wert von dokument wo aussage zutrifft
             case 0 -> {
-                return new QueryRecord(null, "name", " where value < 1400 && value > -567", "query");
+                return new QueryRecord(null, "name", " WHERE someValue < 1400 AND someValue > -567", "query");
             }
             // berechne wert wo zutrifft
             case 1 -> {
-                return new QueryRecord(null, "details.list", " where details.active == true", "aggregate");
+                return new QueryRecord(null, "details.list", " WHERE details.active = true", "aggregate");
             }
             // finde dokument
             default -> {
-                return new QueryRecord(Integer.toString(new Random().nextInt(0, currentDocID.get())), null, null, "find");
+                return new QueryRecord(Integer.toString(new Random().nextInt(0, maxRecordSize)), null, null, "find");
             }
         }
     }
