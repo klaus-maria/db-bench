@@ -69,7 +69,7 @@ public class BenchmarkRunner {
                         case "read" -> database.read(generateSearch());
                         case "write" -> database.write(generateDoc());
                         case "mixed" -> {
-                            if ((new Random().nextInt(0, 1) == 1)) {
+                            if ((new Random().nextInt(0, 2) == 1)) {
                                 database.write(generateDoc());
                             } else {
                                 database.read(generateSearch());
@@ -156,7 +156,6 @@ public class BenchmarkRunner {
     }
 
     private ObjectNode generateDoc(){
-        //Map<String, Object> document = new HashMap<>();
         Integer identifier = currentDocID.getAndIncrement();
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -173,7 +172,6 @@ public class BenchmarkRunner {
             document.put("someValue", rand.nextInt());
 
             ObjectNode details = objectMapper.createObjectNode();
-            //String list = '[' + "'test',".repeat(rand.nextInt(50,100)) + "'test']";
             String list = "[" + "\"test\",".repeat(rand.nextInt(50,100)) + " \"test\"]";
             JsonNode listJSON = objectMapper.readTree(list);
             details.put("ip", "192.168.123." +  rand.nextInt(0, 256));
@@ -185,24 +183,18 @@ public class BenchmarkRunner {
             document.set("padding", null);
             byte[] jsonBytes = objectMapper.writeValueAsBytes(document);
             int difference = (maxRecordSize * 1000) - jsonBytes.length; //convert maxrecordsize from Kb to b
-            System.out.println(difference);
             // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen, oder beliebig viel bis fixedRecordSize=maxRecordSize
-            /*
-            List<Byte> padding = new ArrayList<>();
+            short[] padding;
 
-            while (difference > 0 && (fixedRecordSize || rand.nextBoolean())) {
-                padding.add((byte) 0xa);
-                jsonBytes
+            if(fixedRecordSize){
+                padding = new short[difference/4]; //short is 2 bytes
+            } else {
+                padding = new short[rand.nextInt(0, difference/4)];
             }
 
-             */
-
-
-            short[] padding = new short[difference/4]; //short is 2 bytes
             Arrays.fill(padding, (short) 0xa);
-            //rand.nextBytes(padding);
             document.put("padding", Arrays.toString(padding));
-            //byte[] paddingBytes = objectMapper.writeValueAsBytes(padding);
+
             byte[] endBytes = objectMapper.writeValueAsBytes(document);
             System.out.println("SIZE: " + endBytes.length);
             documentSizes.add(endBytes.length / 1000.0);
@@ -227,6 +219,7 @@ public class BenchmarkRunner {
             // finde dokument
             default -> {
                 int bound = workload.equalsIgnoreCase("read") ? maxRecordSize : currentDocID.get();
+                if(bound == 0) return new QueryRecord("0", null, null, "find"); //if bound == 0 -> IllegalArgumentException by Random
                 return new QueryRecord(Integer.toString(new Random().nextInt(0, bound)), null, null, "find");
             }
         }
