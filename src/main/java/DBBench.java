@@ -29,7 +29,7 @@ public class DBBench {
         String password = cmd.getOptionValue("password", "password");
         int threads = Integer.parseInt(cmd.getOptionValue("threads", "1"));
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
-        boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "false"));
+        boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "0"));
         int maxSize = Integer.parseInt(cmd.getOptionValue("maxSize", "10"));
         String workload = cmd.getOptionValue("workload", "mixed");
         String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "\\Desktop\\DBBench\\benchmark.csv");

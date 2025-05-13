@@ -86,7 +86,7 @@ public class BenchmarkRunner {
         }
 
         executor.shutdown();
-        executor.awaitTermination(1, TimeUnit.MINUTES);
+        executor.awaitTermination(2, TimeUnit.HOURS);
 
         runningTime = (System.nanoTime() - startTime) / 1e9;
         monitor.set(false);
@@ -108,7 +108,7 @@ public class BenchmarkRunner {
                 long timestamp = System.currentTimeMillis();
                 snapshots.add(new SystemSnapshot(timestamp, cpuLoad, cpuLoadProcess, usedMemory));
                 try {
-                    Thread.sleep(100); // system nur jede halbe sekunde checken
+                    Thread.sleep(500); // system nur jede halbe sekunde checken
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -164,9 +164,7 @@ public class BenchmarkRunner {
         // ein Feld mit ID um genaue Suche zu ermöglichen
         // ein Feld (immer selber Attributname) für aggregate operationen
         // ein Feld mit komplexerer Struktur
-        // rest mit padding befüllt
-        //document.put("padding", null); // wird im vorhinein dazugetan um fehlende bytes korrekt zu berechnen
-        // document auf gewünschte größe bringen
+        // rest mit padding befüllt um document auf gewünschte größe bringen
         try {
             document.put("name", identifier);
             document.put("someValue", rand.nextInt());
@@ -183,14 +181,18 @@ public class BenchmarkRunner {
             document.set("padding", null);
             byte[] jsonBytes = objectMapper.writeValueAsBytes(document);
             int difference = (maxRecordSize * 1000) - jsonBytes.length; //convert maxrecordsize from Kb to b
-            // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen, oder beliebig viel bis fixedRecordSize=maxRecordSize
-            short[] padding;
+            short[] padding = new short[difference/4];
 
+            // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen, oder beliebig viel bis fixedRecordSize=maxRecordSize
+            // funktioniert nicht, keine Ahnung warum, make fixedSize Int instead of Boolean???
+            /*
             if(fixedRecordSize){
                 padding = new short[difference/4]; //short is 2 bytes
             } else {
                 padding = new short[rand.nextInt(0, difference/4)];
             }
+
+             */
 
             Arrays.fill(padding, (short) 0xa);
             document.put("padding", Arrays.toString(padding));
@@ -200,7 +202,7 @@ public class BenchmarkRunner {
             documentSizes.add(endBytes.length / 1000.0);
             return document;
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
