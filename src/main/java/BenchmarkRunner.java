@@ -226,7 +226,8 @@ public class BenchmarkRunner {
             }
             // finde dokument
             default -> {
-                return new QueryRecord(Integer.toString(new Random().nextInt(0, maxRecordSize)), null, null, "find");
+                int bound = workload.equalsIgnoreCase("read") ? maxRecordSize : currentDocID.get();
+                return new QueryRecord(Integer.toString(new Random().nextInt(0, bound)), null, null, "find");
             }
         }
     }
