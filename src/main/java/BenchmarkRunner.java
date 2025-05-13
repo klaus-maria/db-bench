@@ -3,7 +3,10 @@ import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.sun.management.OperatingSystemMXBean;
 import databases.Database;
 import databases.QueryRecord;
@@ -105,7 +108,7 @@ public class BenchmarkRunner {
                 long timestamp = System.currentTimeMillis();
                 snapshots.add(new SystemSnapshot(timestamp, cpuLoad, cpuLoadProcess, usedMemory));
                 try {
-                    Thread.sleep(500); // system nur jede halbe sekunde checken
+                    Thread.sleep(100); // system nur jede halbe sekunde checken
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -152,29 +155,34 @@ public class BenchmarkRunner {
         }
     }
 
-    private Map<String, Object> generateDoc(){
-        Map<String, Object> document = new HashMap<>();
+    private ObjectNode generateDoc(){
+        //Map<String, Object> document = new HashMap<>();
         Integer identifier = currentDocID.getAndIncrement();
+
         ObjectMapper objectMapper = new ObjectMapper();
+        ObjectNode document = objectMapper.createObjectNode();
         Random rand = new Random();
         // ein Feld mit ID um genaue Suche zu ermöglichen
         // ein Feld (immer selber Attributname) für aggregate operationen
         // ein Feld mit komplexerer Struktur
         // rest mit padding befüllt
-        document.put("name", identifier);
-        document.put("value", rand.nextInt());
-
-        Map<String, Object> details = new HashMap<>();
-        Object[] list = {"test".repeat(rand.nextInt(50,100))};
-        details.put("ip", "192.168.123." +  rand.nextInt(0, 256));
-        details.put("os", "windows");
-        details.put("active", rand.nextBoolean());
-        details.put("list", list);
-
-        document.put("details", details);
-        document.put("padding", null); // wird im vorhinein dazugetan um fehlende bytes korrekt zu berechnen
+        //document.put("padding", null); // wird im vorhinein dazugetan um fehlende bytes korrekt zu berechnen
         // document auf gewünschte größe bringen
         try {
+            document.put("name", identifier);
+            document.put("value", rand.nextInt());
+
+            ObjectNode details = objectMapper.createObjectNode();
+            //String list = '[' + "'test',".repeat(rand.nextInt(50,100)) + "'test']";
+            String list = "[" + "\"test\",".repeat(rand.nextInt(50,100)) + " \"test\"]";
+            JsonNode listJSON = objectMapper.readTree(list);
+            details.put("ip", "192.168.123." +  rand.nextInt(0, 256));
+            details.put("os", "windows");
+            details.put("active", rand.nextBoolean());
+            details.set("list", listJSON);
+
+            document.set("details", details);
+            document.set("padding", null);
             byte[] jsonBytes = objectMapper.writeValueAsBytes(document);
             int difference = (maxRecordSize * 1000) - jsonBytes.length; //convert maxrecordsize from Kb to b
             System.out.println(difference);
@@ -190,14 +198,14 @@ public class BenchmarkRunner {
              */
 
 
-            byte[] padding = new byte[difference];
-            Arrays.fill(padding, (byte) 0xa);
+            short[] padding = new short[difference/4]; //short is 2 bytes
+            Arrays.fill(padding, (short) 0xa);
             //rand.nextBytes(padding);
-            document.put("padding", padding);
-            byte[] paddingBytes = objectMapper.writeValueAsBytes(padding);
+            document.put("padding", Arrays.toString(padding));
+            //byte[] paddingBytes = objectMapper.writeValueAsBytes(padding);
             byte[] endBytes = objectMapper.writeValueAsBytes(document);
             System.out.println("SIZE: " + endBytes.length);
-            documentSizes.add((jsonBytes.length + paddingBytes.length) / 1000.0);
+            documentSizes.add(endBytes.length / 1000.0);
             return document;
 
         } catch (JsonProcessingException e) {

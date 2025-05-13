@@ -1,9 +1,10 @@
 
 ˜
-java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8«½÷ªì2J$183be791-3d06-4d32-9084-7884243416dd
-r	java:S106"+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8±î´«ì2J$b3cf1745-f5c7-461e-b853-0c101a3c93d9
-‚
-java:S6213"":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8®½÷ªì2J$1d10abb9-9a51-40b1-accc-6b9b335e7e14
-r	java:S106$"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8˜°µ«ì2J$9410d161-1b7b-4072-973d-877b49eb7451
-m	java:S106/"+Replace this use of System.out by a logger.(ØõŠÔ8Àú¶«ì2J$d991c6a4-0d64-4ad8-891f-9515993c6304
-G	java:S1065"+Replace this use of System.out by a logger.(ÆÀÂú8Õ·«ì2
+java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8îÖëÁì2J$24f25615-c2ed-40b8-9b11-2490906a90da
+r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8òÖëÁì2J$ce567793-0708-461d-97e7-a5e802863bb1
+}
+java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8óÖëÁì2J$32ccb537-fe79-4796-a5cb-d4f0647a2853
+r	java:S106'"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8óÖëÁì2J$cfce29c5-2c7a-4642-be4b-aad8a61497ac
+r	java:S106)"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8õÖëÁì2J$5e6830dd-ab26-4169-a53d-8526819d3f17
+m	java:S1065"+Replace this use of System.out by a logger.(ØõŠÔ8õÖëÁì2J$b54f579a-5e04-43f3-9b8a-967864ac1ead
+m	java:S106;"+Replace this use of System.out by a logger.(ÆÀÂú8¯îëÁì2J$cbf8a194-72fe-481d-880b-b69d9c3d51e7

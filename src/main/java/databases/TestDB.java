@@ -1,5 +1,7 @@
 package databases;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import java.util.Map;
 
 public class TestDB implements Database {
@@ -10,7 +12,7 @@ public class TestDB implements Database {
     }
 
     @Override
-    public void write(Map<String, Object> record) {
+    public void write(ObjectNode record) {
         System.out.println(record.toString());
     }
 

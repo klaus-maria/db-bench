@@ -1,7 +1,9 @@
 package databases;
 
+import com.couchbase.client.core.error.CouchbaseException;
 import com.couchbase.client.java.*;
 import com.couchbase.client.java.json.JsonObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.util.Map;
 
@@ -31,9 +33,13 @@ public class CouchbaseClient implements Database {
     }
 
     @Override
-    public void write(Map<String, Object> record) {
-        collection.insert(record.get("name").toString(), JsonObject.from(record));
-        System.out.println("document inserted to couchbase");
+    public void write(ObjectNode record) {
+        try {
+            collection.insert(record.get("name").toString(), record);
+            System.out.println("document inserted to couchbase");
+        } catch (CouchbaseException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
