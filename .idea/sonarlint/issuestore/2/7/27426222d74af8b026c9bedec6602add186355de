@@ -1,21 +1,22 @@
 
-p
-java:S2095"NUse try-with-resources or close this "ODatabaseSession" in a "finally" clause.(®àğ×ÿÿÿÿÿ8¢’Ûí2
-c
-java:S2095"FUse try-with-resources or close this "OrientDB" in a "finally" clause.(İ›úë8£’Ûí2
-Ä
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…÷‘Î8ãÃÚí2J$d15616cc-dbf2-4ea4-8348-dfc2fcc50e6e
 Ã
-java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8ãÃÚí2J$01f57030-6c4b-4b01-be80-065cd80df5d2
-É
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ¦ôÃûÿÿÿÿ8ãÃÚí2J$913363d6-57c2-43fa-a7dd-15bffb73e9cb
-~
-java:S1854"6Remove this useless assignment to local variable "db".(®àğ×ÿÿÿÿÿ8çÃÚí2J$9d01aecc-c533-46b4-a23e-04006857848f
-o
-java:S1481"'Remove this unused "db" local variable.(®àğ×ÿÿÿÿÿ8ìÃÚí2J$159f0304-444e-4f0a-a68f-90d5a22324ad
-}
-java:S6213 ":Rename this variable to not match a restricted identifier.(…÷‘Î8íÃÚí2J$0ff2620a-9df1-4a10-b038-b52ee0c70953
-[
-java:S1128">Remove this unused import 'com.orientechnologies.orient.core'.(ïÄÕİ8±’Ûí2
-b
-java:S1128"@Remove this unused import 'com.orientechnologies.orient.client'.(©î°œûÿÿÿÿ8²’Ûí2
+java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8à–®¤í2J$814ea4d5-ba2a-49b2-9066-5fea4fdb51ca
+‚
+java:S6213*":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8æ–®¤í2J$35287564-5853-4e64-949c-af7711505355
+m	java:S1061"+Replace this use of System.out by a logger.(¸»à 8ì–®¤í2J$1015b572-521b-4879-a84c-74d4ebdb3700
+r	java:S1063"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8ì–®¤í2J$cbd74c1b-d94e-4a49-933f-4eef3763c171
+r	java:S106?"+Replace this use of System.out by a logger.(ùûÄöûÿÿÿÿ8î–®¤í2J$966e87f5-2914-42d8-b1ba-67adbe01869e
+‡
+java:S1128"DRemove this unused import 'com.fasterxml.jackson.databind.JsonNode'.(–×ª8Ô¿®¤í2J$40c0f6bb-46cd-4f7c-abfc-fdba9276fc0b
+
+java:S1128"KRemove this unused import 'com.fasterxml.jackson.databind.node.ObjectNode'.(ëéï½8Ô¿®¤í2J$8b428bf2-cd04-4771-869b-27486f622ccb
+
+java:S1128">Remove this unused import 'com.orientechnologies.orient.core'.(ïÄÕİ8Ô¿®¤í2J$67e40d19-3cfb-4f4c-8455-72f67ed902c6
+ˆ
+java:S1128"@Remove this unused import 'com.orientechnologies.orient.client'.(©î°œûÿÿÿÿ8Ô¿®¤í2J$08a14570-4810-42a3-b987-b06699616aec
+¤
+java:S1128"\Remove this unused import 'com.orientechnologies.orient.core.db.ODatabaseRecordThreadLocal'.(…ÛÖøÿÿÿÿ8Ô¿®¤í2J$8179a61d-51ae-4fba-a4cc-49a24265abaa
+•
+java:S1128"RRemove this unused import 'com.orientechnologies.orient.core.db.ODatabaseSession'.(Í†›8Ô¿®¤í2J$13a2ac83-ce06-4bba-a3bb-949bb81c6dc8
+r
+java:S1128"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ8Ô¿®¤í2J$7ac48d6c-ecac-4272-b6f0-fb3cbf71d6a9

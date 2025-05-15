@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
@@ -155,7 +156,7 @@ public class BenchmarkRunner {
         }
     }
 
-    private ObjectNode generateDoc(){
+    private Map<String, Object> generateDoc(){
         Integer identifier = currentDocID.getAndIncrement();
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -200,7 +201,8 @@ public class BenchmarkRunner {
             byte[] endBytes = objectMapper.writeValueAsBytes(document);
             System.out.println("SIZE: " + endBytes.length);
             documentSizes.add(endBytes.length / 1000.0);
-            return document;
+            Map<String, Object> result = objectMapper.convertValue(document, new TypeReference<Map<String, Object>>(){});
+            return result;
 
         } catch (Exception e) {
             throw new RuntimeException(e);

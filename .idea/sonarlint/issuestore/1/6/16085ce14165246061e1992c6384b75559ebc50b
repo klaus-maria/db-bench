@@ -1,28 +1,28 @@
 
-	java:S112q"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$a8dcb462-4f5a-48c0-af6b-6856711ce660
-	java:S112Î"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$8f604bb0-2115-4ca1-91cf-f973b945afda
+	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$c05a3e75-6aef-419a-8000-76c970c662d2
+	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$df54615e-4556-4731-b4fc-cfcdd546c93e
+ã
+java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 22 to the maximum authorized 20 or less.(¯¢ıÎ8Ï§İ¢í2J$65fc1235-0a11-4be9-a7c5-47f42a66cd9c
+§
+java:S1488Ì"^Immediately return this expression instead of assigning it to the temporary variable "result".(–Äê üÿÿÿÿ8üÂß¢í2J$81937cca-3113-418d-b3d4-4580c606c822
 ]
-java:S1220""Move this file to a named package.8ƒ´ÈÑì2J$b9ec2992-d41d-4cdf-81b6-8ca976f8c929
+java:S1220""Move this file to a named package.8ƒ´ÈÑì2J$e9e2c0a1-e1c5-4343-941c-102e74bc65a6
 f
-java:S2119H"Save and re-use this "Random".(„ÓÅ§ÿÿÿÿÿ8Ÿ´ÈÑì2J$1719a237-48bc-4a90-9328-aec02afad851
+java:S2119I"Save and re-use this "Random".(„ÓÅ§ÿÿÿÿÿ8Ÿ´ÈÑì2J$77ebe19c-b4ee-4f12-9c0c-f55923eb3a7f
 _
-java:S1116b"Remove this empty statement.(öÖ«£8¡´ÈÑì2J$e69dde5c-2d75-4200-b247-3aab3846a006
-r	java:S106f"+Replace this use of System.out by a logger.(ĞñÀùùÿÿÿÿ8£´ÈÑì2J$0fa7b9cc-20c3-4640-8493-f3ab8630fa32
+java:S1116c"Remove this empty statement.(öÖ«£8¡´ÈÑì2J$d4b9cbe6-f62f-4409-93c9-b0e07362b37e
+r	java:S106g"+Replace this use of System.out by a logger.(ĞñÀùùÿÿÿÿ8£´ÈÑì2J$2428db74-c4c2-4334-b667-a4d4ea570a50
 ¡
-java:S2142p"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¥´ÈÑì2J$8694bf01-80d9-4f6e-8c2a-a3b863d4c077
-m	java:S106}"+Replace this use of System.out by a logger.(ıì½©8¦´ÈÑì2J$e13497ce-11a2-4d61-bce6-071f8e37e5f6
-n	java:S106˜"+Replace this use of System.out by a logger.(àŠÜï8©´ÈÑì2J$a9cf235b-e4d8-4399-8dcb-58d169c3d8fc
+java:S2142q"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¥´ÈÑì2J$a656ebf7-8be8-46d3-8304-bc6ac2b34d67
+m	java:S106~"+Replace this use of System.out by a logger.(ıì½©8¦´ÈÑì2J$8747b920-858f-4e2e-ba38-f52bb5bc4abe
+n	java:S106™"+Replace this use of System.out by a logger.(àŠÜï8©´ÈÑì2J$3057dc07-fc94-459a-b9b3-3a80c6eed2f6
 g
-java:S2119£"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¹´ÈÑì2J$78c6266e-cafd-44c6-bf66-960a0ec9d934
-~	java:S125½"<This block of commented-out lines of code should be removed.(›¶8Ø€ÙÑì2J$51601608-f51e-46ba-84df-7462cf66902c
-s	java:S106É"+Replace this use of System.out by a logger.(Ë£Ù»ıÿÿÿÿ8¿´ÈÑì2J$fc4d7897-a367-485a-9e37-8cdc93cda08a
+java:S2119¤"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¹´ÈÑì2J$24ee0e3e-7314-44c5-8ad9-4f591b6bf09a
+~	java:S125¾"<This block of commented-out lines of code should be removed.(›¶8Ø€ÙÑì2J$4c68b44d-2b92-4000-b3d4-0da71e7d37f1
+s	java:S106Ê"+Replace this use of System.out by a logger.(Ë£Ù»ıÿÿÿÿ8¿´ÈÑì2J$141e1bab-b7ba-4191-813e-141ff54d856c
 a
-java:S2119Ô"Save and re-use this "Random".(ÛªØc8Á´ÈÑì2J$b845c172-d722-4470-bfe8-cf9f56de98ad
+java:S2119Ö"Save and re-use this "Random".(ÛªØc8Á´ÈÑì2J$83f7ff5e-79bd-4fba-99d9-2debc27a6be1
 g
-java:S2119á"Save and re-use this "Random".(úûı©ûÿÿÿÿ8Â´ÈÑì2J$9b3a5ef7-3218-47b7-a943-0b08cf08747a
-—
-java:S1128"ORemove this unused import 'com.fasterxml.jackson.core.JsonProcessingException'.(ßÔïÇûÿÿÿÿ8÷ÎÑÑì2J$c5e409c6-618a-4079-914a-f7b39e502e46
-“
-java:S1128"PRemove this unused import 'com.fasterxml.jackson.databind.node.JsonNodeFactory'.(Çå“8÷ÎÑÑì2J$2d5d642f-7999-418f-a25e-3bdca8f23def
+java:S2119ã"Save and re-use this "Random".(úûı©ûÿÿÿÿ8Â´ÈÑì2J$b49ecac2-be7d-4680-8373-9898d374005c
 v
-java:S1068"3Remove this unused "fixedRecordSize" private field.(Á Œ°8Ü€ÙÑì2J$bb5e55e4-35f1-45cb-95ea-17e4677a9de8
+java:S1068"3Remove this unused "fixedRecordSize" private field.(Á Œ°8Ü€ÙÑì2J$a84d2b8e-ad88-48fb-b434-962443f7ec0f

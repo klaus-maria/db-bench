@@ -1,15 +1,11 @@
 
 ˜
-java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8Ë«„Èì2J$9c6658ef-eefc-47b1-96c2-893536132bcb
-r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8Í«„Èì2J$8c4ef625-cd62-4232-9c2e-57680198a8e4
-}
-java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8Î«„Èì2J$5a985843-f21a-4c2d-af5b-2060f7e53694
-r	java:S106'"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8Î«„Èì2J$7f614fb3-84cc-4035-961b-067ecbae02e8
-r	java:S106)"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ï«„Èì2J$dfbe217d-fb60-4ed0-a297-a356a666bd75
-m	java:S1066"+Replace this use of System.out by a logger.(¶Â¬»8Ğ«„Èì2J$73d46fcf-67bd-488d-bb72-b798ffbbc373
-r	java:S1068"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ğ«„Èì2J$b9554298-219f-4c96-b4ad-cd9989a363d3
-m	java:S106?"+Replace this use of System.out by a logger.(ÆÀÂú8Ñ«„Èì2J$c1ae556a-d322-4903-82ef-b3a10423949e
-
-java:S1128"FRemove this unused import 'com.couchbase.client.java.json.JsonObject'.(¤ßí§ıÿÿÿÿ8Ò«„Èì2J$40da36c7-28be-4fff-b718-d02684c862a1
-r
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ü«„Èì2J$84d3cdc8-77f9-4cfe-b14c-885575dba358
+java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8Ë«„Èì2J$4aa9763f-2b91-4795-8125-c76d80b0a40a
+r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8Í«„Èì2J$3606d5ff-8bc7-4166-84ce-52f7bae145af
+‚
+java:S6213$":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8Î«„Èì2J$7107fcb4-a3fe-4514-b345-33401a53c828
+r	java:S106'"+Replace this use of System.out by a logger.(‘œªüıÿÿÿÿ8Î«„Èì2J$003bd3e8-72a5-4c59-a9f0-b28721e44027
+r	java:S106)"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ï«„Èì2J$3cc33889-72f7-42e8-ad02-81152c0a50ab
+m	java:S1066"+Replace this use of System.out by a logger.(¶Â¬»8Ğ«„Èì2J$52203c73-1395-4481-b3ac-0f4500716193
+r	java:S1068"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8Ğ«„Èì2J$45775669-e42e-4110-8231-8d4cfbee6469
+m	java:S106?"+Replace this use of System.out by a logger.(ÆÀÂú8Ñ«„Èì2J$e38aa03a-65cb-4346-803e-de58f2dfe576

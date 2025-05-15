@@ -1,9 +1,7 @@
 
-m	java:S106"+Replace this use of System.out by a logger.(ΏαβΞ8«όβ¨μ2J$6b3cf04a-2e81-4089-9cc0-82ba7c46957f
-}
-java:S6213":Rename this variable to not match a restricted identifier.(…χ‘Ξ8¬όβ¨μ2J$72fa5561-7ff3-4c2f-bb49-7bcb72a4f199
-r	java:S106"+Replace this use of System.out by a logger.(έ―οΤϋÿÿÿÿ8¬όβ¨μ2J$281d9fe4-6490-42cf-95c7-3d03e5bab3a5
-r	java:S106"+Replace this use of System.out by a logger.(―ζ£ϊÿÿÿÿ8¬όβ¨μ2J$bed69e3f-65c3-4a7c-94ae-0255fd087f86
-l	java:S106"+Replace this use of System.out by a logger.(ΖΫ/8®όβ¨μ2J$110937cc-ccc9-4f33-808e-25e889179676
-L
-java:S1128"*Remove this unused import 'java.util.Map'.(Όθ½Òώÿÿÿÿ8έ‘φΛμ2
+m	java:S106"+Replace this use of System.out by a logger.(ΏαβΞ8«όβ¨μ2J$b1a7083b-fc83-4a5c-b576-764bffd38ed3
+‚
+java:S6213":Rename this variable to not match a restricted identifier.(¦έ–“ÿÿÿÿÿ8¬όβ¨μ2J$7022d9f1-6bb4-4628-9fb5-b99308aec76a
+r	java:S106"+Replace this use of System.out by a logger.(έ―οΤϋÿÿÿÿ8¬όβ¨μ2J$c84d49e9-7939-4280-a6b7-b5d4e5391770
+r	java:S106"+Replace this use of System.out by a logger.(―ζ£ϊÿÿÿÿ8¬όβ¨μ2J$c383f982-9644-45eb-873e-a7462ca6e7b8
+l	java:S106"+Replace this use of System.out by a logger.(ΖΫ/8®όβ¨μ2J$eed876af-e26f-4834-87f1-2c7941124ba1

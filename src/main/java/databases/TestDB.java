@@ -12,7 +12,7 @@ public class TestDB implements Database {
     }
 
     @Override
-    public void write(ObjectNode record) {
+    public void write(Map<String, Object> record) {
         System.out.println(record.toString());
     }
 

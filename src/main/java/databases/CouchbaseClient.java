@@ -33,7 +33,7 @@ public class CouchbaseClient implements Database {
     }
 
     @Override
-    public void write(ObjectNode record) {
+    public void write(Map<String, Object> record) {
         try {
             collection.insert(record.get("name").toString(), record);
             System.out.println("document inserted to couchbase");

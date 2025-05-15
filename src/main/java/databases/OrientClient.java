@@ -1,11 +1,19 @@
 package databases;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.orientechnologies.orient.core.*;
 import com.orientechnologies.orient.client.*;
+import com.orientechnologies.orient.core.db.ODatabaseRecordThreadLocal;
+import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.db.OrientDB;
 import com.orientechnologies.orient.core.db.OrientDBConfig;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
+import com.orientechnologies.orient.core.id.ORID;
+import com.orientechnologies.orient.core.record.impl.ODocument;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class OrientClient implements Database {
 
@@ -13,6 +21,8 @@ public class OrientClient implements Database {
     private final String username;
     private final String password;
     private final String instance;
+    OrientDB orientDB;
+    ODatabaseDocument db;
 
     public OrientClient(String host, String username, String password, String instance){
         this.host = host;
@@ -23,14 +33,23 @@ public class OrientClient implements Database {
     }
     @Override
     public void connect() {
-        OrientDB orientDB = new OrientDB(host, OrientDBConfig.defaultConfig());
-        ODatabaseDocument db = orientDB.open(instance, username, password);
+        orientDB = new OrientDB(host, OrientDBConfig.defaultConfig());
+        db = orientDB.open(instance, username, password);
 
     }
 
     @Override
-    public void write(ObjectNode record) {
-
+    public void write(Map<String, Object> record) {
+        try{
+            db.activateOnCurrentThread();
+            ODocument doc = new ODocument("data");
+            record.forEach(doc::field);
+            db.save(doc);
+            ORID rid = doc.getIdentity();
+            System.out.println("Saved with RID: " + rid);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
@@ -40,6 +59,7 @@ public class OrientClient implements Database {
 
     @Override
     public void disconnect() {
-
+        db.close();
+        System.out.println("disconnected from orient");
     }
 }
