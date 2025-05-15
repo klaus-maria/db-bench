@@ -1,15 +1,15 @@
 
 ˜
-java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8Ë«„Èì2J$e7f21f9c-36d9-498a-afa4-2c6300266e28
-r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8Í«„Èì2J$e2d0b193-7ca0-43a0-b38d-2ce551d716ac
+java:S1450"URemove the "bucket" field and declare it as a local variable in the relevant methods.(à¶åÅ8Ë«„Èì2J$9c6658ef-eefc-47b1-96c2-893536132bcb
+r	java:S106 "+Replace this use of System.out by a logger.(éÊ² ÿÿÿÿÿ8Í«„Èì2J$8c4ef625-cd62-4232-9c2e-57680198a8e4
 }
-java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8Î«„Èì2J$2a16ef77-3372-43c8-af1f-3cf536603fec
-r	java:S106'"+Replace this use of System.out by a logger.(‘œªüýÿÿÿÿ8Î«„Èì2J$62433eac-8136-4cf3-9c57-c789d98d83e2
-r	java:S106)"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ8Ï«„Èì2J$aa30e422-3b13-4b90-95ae-bb9342747a57
-m	java:S1066"+Replace this use of System.out by a logger.(¶Â¬»8Ð«„Èì2J$f97fa0b4-2ab7-4f47-a68b-c9d990b2a74b
-r	java:S1068"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ8Ð«„Èì2J$c9c6524b-f36a-440c-9dee-960478f75aca
-m	java:S106?"+Replace this use of System.out by a logger.(ÆÀÂú8Ñ«„Èì2J$39c8c03f-deea-4dca-b54f-176732263aaa
+java:S6213$":Rename this variable to not match a restricted identifier.(…÷‘Î8Î«„Èì2J$5a985843-f21a-4c2d-af5b-2060f7e53694
+r	java:S106'"+Replace this use of System.out by a logger.(‘œªüýÿÿÿÿ8Î«„Èì2J$7f614fb3-84cc-4035-961b-067ecbae02e8
+r	java:S106)"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ8Ï«„Èì2J$dfbe217d-fb60-4ed0-a297-a356a666bd75
+m	java:S1066"+Replace this use of System.out by a logger.(¶Â¬»8Ð«„Èì2J$73d46fcf-67bd-488d-bb72-b798ffbbc373
+r	java:S1068"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ8Ð«„Èì2J$b9554298-219f-4c96-b4ad-cd9989a363d3
+m	java:S106?"+Replace this use of System.out by a logger.(ÆÀÂú8Ñ«„Èì2J$c1ae556a-d322-4903-82ef-b3a10423949e
 Ž
-java:S1128"FRemove this unused import 'com.couchbase.client.java.json.JsonObject'.(¤ßí§ýÿÿÿÿ8Ò«„Èì2J$4bd0d845-5f71-4fa0-be74-1da9f68232b4
+java:S1128"FRemove this unused import 'com.couchbase.client.java.json.JsonObject'.(¤ßí§ýÿÿÿÿ8Ò«„Èì2J$40da36c7-28be-4fff-b718-d02684c862a1
 r
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8Ü«„Èì2J$7c10782a-b1ec-47a7-9251-0d5ac6433152
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8Ü«„Èì2J$84d3cdc8-77f9-4cfe-b14c-885575dba358

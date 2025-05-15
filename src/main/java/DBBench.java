@@ -1,5 +1,6 @@
 import databases.CouchbaseClient;
 import databases.Database;
+import databases.OrientClient;
 import databases.TestDB;
 import org.apache.commons.cli.*;
 public class DBBench {
@@ -40,6 +41,7 @@ public class DBBench {
         switch (dbType.toLowerCase()) {
             case "test" -> db = new TestDB();
             case "couchbase" -> db = new CouchbaseClient(host, username, password, instance);
+            case "orient" -> db = new OrientClient(host, username, password, instance);
             default -> throw new IllegalArgumentException("Unsupported DB: " + dbType);
         }
         System.out.printf("Params: %s%n", outputPath);

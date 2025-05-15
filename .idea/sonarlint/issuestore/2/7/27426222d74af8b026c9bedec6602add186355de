@@ -1,0 +1,21 @@
+
+p
+java:S2095"NUse try-with-resources or close this "ODatabaseSession" in a "finally" clause.(®àğ×ÿÿÿÿÿ8¢’Ûí2
+c
+java:S2095"FUse try-with-resources or close this "OrientDB" in a "finally" clause.(İ›úë8£’Ûí2
+Ä
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…÷‘Î8ãÃÚí2J$d15616cc-dbf2-4ea4-8348-dfc2fcc50e6e
+Ã
+java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8ãÃÚí2J$01f57030-6c4b-4b01-be80-065cd80df5d2
+É
+java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ¦ôÃûÿÿÿÿ8ãÃÚí2J$913363d6-57c2-43fa-a7dd-15bffb73e9cb
+~
+java:S1854"6Remove this useless assignment to local variable "db".(®àğ×ÿÿÿÿÿ8çÃÚí2J$9d01aecc-c533-46b4-a23e-04006857848f
+o
+java:S1481"'Remove this unused "db" local variable.(®àğ×ÿÿÿÿÿ8ìÃÚí2J$159f0304-444e-4f0a-a68f-90d5a22324ad
+}
+java:S6213 ":Rename this variable to not match a restricted identifier.(…÷‘Î8íÃÚí2J$0ff2620a-9df1-4a10-b038-b52ee0c70953
+[
+java:S1128">Remove this unused import 'com.orientechnologies.orient.core'.(ïÄÕİ8±’Ûí2
+b
+java:S1128"@Remove this unused import 'com.orientechnologies.orient.client'.(©î°œûÿÿÿÿ8²’Ûí2

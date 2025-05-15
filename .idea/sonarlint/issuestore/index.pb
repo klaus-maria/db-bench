@@ -17,3 +17,5 @@ X
 ,src/main/java/databases/CouchbaseClient.java,4\a\4a8b6fb1b8db8b56dcf53bb023bae25e1fc49b93
 X
 (src/main/java/databases/QueryRecord.java,b\3\b352800d06b9ebb2edbd0869d90b70a110b4069e
+Y
+)src/main/java/databases/OrientClient.java,2\7\27426222d74af8b026c9bedec6602add186355de
