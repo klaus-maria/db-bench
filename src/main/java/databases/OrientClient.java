@@ -53,8 +53,19 @@ public class OrientClient implements Database {
     }
 
     @Override
-    public void read(QueryRecord q) {
-
+    public void read(QueryRecord query) {
+        try{
+            db.activateOnCurrentThread();
+            switch (query.type()){
+                case "find" -> db.query("SELECT * FROM data WHERE name=" + query.id());
+                case "query" -> db.query("SELECT " + query.field() + " from data " + query.condition()); //sleect from data because data class is used to write to
+                case "aggregate" -> db.query("SELECT count(" + query.field() + ") from data " + query.condition());
+                default -> throw new IllegalArgumentException("Invalid Query Type");
+            }
+            System.out.println("query " + query.type() + " performed on orient");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
