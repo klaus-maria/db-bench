@@ -1,0 +1,13 @@
+
+É
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦İ–“ÿÿÿÿÿ8û’àÃí2J$d136f8ea-49ab-4723-838b-9689604129f0
+Ã
+java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8û’àÃí2J$0c170738-e080-4bd6-b023-880e856a037c
+”
+java:S1450"QRemove the "db" field and declare it as a local variable in the relevant methods.(¶¸Â‚8µáÃí2J$3b7f6127-d4ec-4ef1-b1e9-b05795308186
+‚
+java:S6213#":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8“àÃí2J$86976685-bdb3-4b69-9e33-3fbc66c3d7e7
+t
+java:S1068",Remove this unused "username" private field.(íïÌàùÿÿÿÿ8„“àÃí2J$88d57f2c-81a8-43f6-a32e-e0ddc6b7ac71
+t
+java:S1068",Remove this unused "password" private field.(»í££ûÿÿÿÿ8„“àÃí2J$e53e446a-238e-417d-8152-81f61f0008da

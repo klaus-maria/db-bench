@@ -1,0 +1,24 @@
+
+Ä
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‰¦àı8¯­ÓÃí2J$c73391d1-3fa3-42e5-9fdd-6c1ab697a9f7
+É
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦İ–“ÿÿÿÿÿ8¯­ÓÃí2J$4b6dfef9-f5e7-4ef0-8897-ea738ab23a5f
+Ã
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8°­ÓÃí2J$2f3e1aea-60ed-4654-bd13-14fd1576b4d0
+É
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ¦ôÃûÿÿÿÿ8°­ÓÃí2J$395eec59-5fb2-4ea1-bc89-e1fce9bdcef7
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(õØ¿şÿÿÿÿ8µ­ÓÃí2J$ec435e32-fd22-49ec-b414-c9ea83569467
+‚
+java:S6213":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8·­ÓÃí2J$4d0b9533-1450-4c36-b5dd-67f9319b3145
+k
+java:S1068	"(Remove this unused "host" private field.(´Ó…8¹­ÓÃí2J$433d54c2-9c50-40f5-9cce-54b010dc499a
+t
+java:S1068
+",Remove this unused "username" private field.(íïÌàùÿÿÿÿ8¹­ÓÃí2J$7f3197ee-ab0c-422d-a088-63035f4b389e
+t
+java:S1068",Remove this unused "password" private field.(»í££ûÿÿÿÿ8º­ÓÃí2J$85db9115-b34d-4d5f-a0c7-de418e4d6d84
+t
+java:S1068",Remove this unused "instance" private field.(‡³ô¿úÿÿÿÿ8º­ÓÃí2J$738126d0-0ee5-4d6d-847e-9919e5362787
+i
+java:S1068"&Remove this unused "db" private field.(¶¸Â‚8»­ÓÃí2J$3442fa7f-dfa2-436e-a978-240134840a43

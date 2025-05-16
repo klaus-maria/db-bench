@@ -1,7 +1,4 @@
-import databases.CouchbaseClient;
-import databases.Database;
-import databases.OrientClient;
-import databases.TestDB;
+import databases.*;
 import org.apache.commons.cli.*;
 public class DBBench {
     public static void main(String[] args) throws Exception {
@@ -42,6 +39,7 @@ public class DBBench {
             case "test" -> db = new TestDB();
             case "couchbase" -> db = new CouchbaseClient(host, username, password, instance);
             case "orient" -> db = new OrientClient(host, username, password, instance);
+            case "mongo" -> db = new MongoDBClient(host, username, password, instance);
             default -> throw new IllegalArgumentException("Unsupported DB: " + dbType);
         }
         System.out.printf("Params: %s%n", outputPath);
