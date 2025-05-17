@@ -1,13 +1,20 @@
 
-É
-java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦İ–“ÿÿÿÿÿ8û’àÃí2J$d136f8ea-49ab-4723-838b-9689604129f0
-Ã
-java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(í¸í8û’àÃí2J$0c170738-e080-4bd6-b023-880e856a037c
 ”
-java:S1450"QRemove the "db" field and declare it as a local variable in the relevant methods.(¶¸Â‚8µáÃí2J$3b7f6127-d4ec-4ef1-b1e9-b05795308186
+java:S1450"QRemove the "db" field and declare it as a local variable in the relevant methods.(¶¸Â‚8Ùàİêí2J$e9abb7b4-900b-4188-b602-b18ea27793e5
+r	java:S106("+Replace this use of System.out by a logger.(Æûâœûÿÿÿÿ8Üàİêí2J$c5391807-0fe2-4c61-9e52-ff38363915b1
 ‚
-java:S6213#":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8“àÃí2J$86976685-bdb3-4b69-9e33-3fbc66c3d7e7
+java:S6213,":Rename this variable to not match a restricted identifier.(¦İ–“ÿÿÿÿÿ8Üàİêí2J$aca45ac0-b690-4078-ac89-7fa29b86bd84
+m	java:S106/"+Replace this use of System.out by a logger.(¸À‡¦8Şàİêí2J$2f6a0c7b-dabe-4e4a-b800-9f1d08a69458
+r	java:S1061"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8ßàİêí2J$c79ddcde-150e-4b14-900c-494ba6f7d817
+r	java:S106D"+Replace this use of System.out by a logger.(Ò¾¡ôúÿÿÿÿ8ãàİêí2J$9f135e18-66c0-47bc-b362-be523279955d
+r	java:S106F"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8äàİêí2J$eacda974-3b7a-423b-8856-e76584796501
+r	java:S106M"+Replace this use of System.out by a logger.(î„äûÿÿÿÿ8äàİêí2J$87f80c6f-89fe-46e4-b46d-dcaa2a110c47
+Š
+java:S1128"BRemove this unused import 'com.mongodb.client.model.Accumulators'.(¯˜Èƒşÿÿÿÿ8äöéêí2J$f2db63c2-26cd-4c3b-8322-94675aba3f1c
+‰
+java:S1128
+"ARemove this unused import 'com.mongodb.client.model.Projections'.(±Ûî­ùÿÿÿÿ8åöéêí2J$458aab81-3c11-472a-9efb-cf412de88ccf
 t
-java:S1068",Remove this unused "username" private field.(íïÌàùÿÿÿÿ8„“àÃí2J$88d57f2c-81a8-43f6-a32e-e0ddc6b7ac71
+java:S1068",Remove this unused "username" private field.(íïÌàùÿÿÿÿ8äàİêí2J$fd3e81c4-0358-4199-b0b0-2d82676b124c
 t
-java:S1068",Remove this unused "password" private field.(»í££ûÿÿÿÿ8„“àÃí2J$e53e446a-238e-417d-8152-81f61f0008da
+java:S1068",Remove this unused "password" private field.(»í££ûÿÿÿÿ8äàİêí2J$bcf2fa21-84e2-449a-ba40-37d953081347
