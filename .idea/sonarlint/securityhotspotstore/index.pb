@@ -19,7 +19,5 @@ X
 (src/main/java/databases/QueryRecord.java,b\3\b352800d06b9ebb2edbd0869d90b70a110b4069e
 Y
 )src/main/java/databases/OrientClient.java,2\7\27426222d74af8b026c9bedec6602add186355de
-X
-(src/main/java/databases/MongoClient.java,8\5\85c9df991e89b7a0948bade1c9a8e5abf4f7af0a
 Z
 *src/main/java/databases/MongoDBClient.java,1\d\1deb358056789078253182bc6c017620add19b71

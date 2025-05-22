@@ -1,28 +1,24 @@
 
-	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$c05a3e75-6aef-419a-8000-76c970c662d2
-	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8€´ÈÑì2J$df54615e-4556-4731-b4fc-cfcdd546c93e
+	java:S112l"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ç»Áï2J$b1da11f1-3bd3-4dc4-9408-728d08f3c012
+	java:S112«"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8é»Áï2J$7838157f-bb9d-4d3f-b66f-17db110d1735
 ã
-java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 22 to the maximum authorized 20 or less.(¯¢ıÎ8Ï§İ¢í2J$65fc1235-0a11-4be9-a7c5-47f42a66cd9c
-§
-java:S1488Ì"^Immediately return this expression instead of assigning it to the temporary variable "result".(–Äê üÿÿÿÿ8üÂß¢í2J$81937cca-3113-418d-b3d4-4580c606c822
+java:S6539"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 21 to the maximum authorized 20 or less.(¯¢ıÎ8é»Áï2J$a42f2495-6b5d-4858-8fb3-6db5a24f92cb
+“	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šè‚Â8ê»Áï2J$52ae4d73-2abb-469e-9ca3-805e9ec2e392
+“	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥µê8Î›šÁï2J$c0c7970e-4585-4ce3-bdcb-01a8a3546a88
+˜	java:S117{"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖºùÀüÿÿÿÿ8Î›šÁï2J$df9ccddd-2c2e-4b3b-ad2c-906a865924fc
 ]
-java:S1220""Move this file to a named package.8ƒ´ÈÑì2J$e9e2c0a1-e1c5-4343-941c-102e74bc65a6
+java:S1220""Move this file to a named package.8Ğ›šÁï2J$cee07a18-dffc-49f2-8698-d25278867178
 f
-java:S2119I"Save and re-use this "Random".(„ÓÅ§ÿÿÿÿÿ8Ÿ´ÈÑì2J$77ebe19c-b4ee-4f12-9c0c-f55923eb3a7f
-_
-java:S1116c"Remove this empty statement.(öÖ«£8¡´ÈÑì2J$d4b9cbe6-f62f-4409-93c9-b0e07362b37e
-r	java:S106g"+Replace this use of System.out by a logger.(ĞñÀùùÿÿÿÿ8£´ÈÑì2J$2428db74-c4c2-4334-b667-a4d4ea570a50
+java:S2119D"Save and re-use this "Random".(„ÓÅ§ÿÿÿÿÿ8»Áï2J$05f09808-1ff7-42a7-9129-ce499dd94236
+d
+java:S1116^"Remove this empty statement.(Äìäùÿÿÿÿ8»Áï2J$4d455784-1711-4ba1-a778-70155da0fd29
+r	java:S106b"+Replace this use of System.out by a logger.(ĞñÀùùÿÿÿÿ8’»Áï2J$417fc466-2fe3-4073-92eb-6d20dca830be
 ¡
-java:S2142q"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¥´ÈÑì2J$a656ebf7-8be8-46d3-8304-bc6ac2b34d67
-m	java:S106~"+Replace this use of System.out by a logger.(ıì½©8¦´ÈÑì2J$8747b920-858f-4e2e-ba38-f52bb5bc4abe
-n	java:S106™"+Replace this use of System.out by a logger.(àŠÜï8©´ÈÑì2J$3057dc07-fc94-459a-b9b3-3a80c6eed2f6
+java:S2142k"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8•»Áï2J$3c0e72c1-7b94-498a-b0a4-3de7e82d0a05
+n	java:S106"+Replace this use of System.out by a logger.(àŠÜï8˜»Áï2J$a49db762-ec65-4e7b-8276-b28c9da71bcd
 g
-java:S2119¤"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¹´ÈÑì2J$24ee0e3e-7314-44c5-8ad9-4f591b6bf09a
-~	java:S125¾"<This block of commented-out lines of code should be removed.(›¶8Ø€ÙÑì2J$4c68b44d-2b92-4000-b3d4-0da71e7d37f1
-s	java:S106Ê"+Replace this use of System.out by a logger.(Ë£Ù»ıÿÿÿÿ8¿´ÈÑì2J$141e1bab-b7ba-4191-813e-141ff54d856c
+java:S2119Œ"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¨»Áï2J$3c288e04-1943-4bb9-baa3-5f8f17e46022
 a
-java:S2119Ö"Save and re-use this "Random".(ÛªØc8Á´ÈÑì2J$83f7ff5e-79bd-4fba-99d9-2debc27a6be1
+java:S2119±"Save and re-use this "Random".(ÛªØc8«»Áï2J$0c6a251d-24da-49d1-ad56-930d9306ff2d
 g
-java:S2119ã"Save and re-use this "Random".(úûı©ûÿÿÿÿ8Â´ÈÑì2J$b49ecac2-be7d-4680-8373-9898d374005c
-v
-java:S1068"3Remove this unused "fixedRecordSize" private field.(Á Œ°8Ü€ÙÑì2J$a84d2b8e-ad88-48fb-b434-962443f7ec0f
+java:S2119¾"Save and re-use this "Random".(úûı©ûÿÿÿÿ8¬»Áï2J$1fcf93b5-aab2-4a2c-93a2-653e63d3094e

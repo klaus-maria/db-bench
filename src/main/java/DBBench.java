@@ -12,7 +12,6 @@ public class DBBench {
         options.addOption("password", true, "databases.Database password");
         options.addOption("threads", true, "Number of threads");
         options.addOption("records", true, "Number of mock records");
-        options.addOption("fixedSize", true, "If size of records is fixed or variable");
         options.addOption("maxSize", true, "Maximum record size in KB");
         options.addOption("workload", true, "Workload type (read, write, mixed)");
         options.addOption("output", true, "Benchmark Results File output path");
@@ -27,7 +26,6 @@ public class DBBench {
         String password = cmd.getOptionValue("password", "password");
         int threads = Integer.parseInt(cmd.getOptionValue("threads", "1"));
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
-        boolean fixed = Boolean.getBoolean(cmd.getOptionValue("fixedSize", "0"));
         int maxSize = Integer.parseInt(cmd.getOptionValue("maxSize", "10"));
         String workload = cmd.getOptionValue("workload", "mixed");
         String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "\\Desktop\\DBBench\\benchmark.csv");
@@ -42,8 +40,7 @@ public class DBBench {
             case "mongo" -> db = new MongoDBClient(host, username, password, instance);
             default -> throw new IllegalArgumentException("Unsupported DB: " + dbType);
         }
-        System.out.printf("Params: %s%n", outputPath);
-        BenchmarkRunner benchmark = new BenchmarkRunner(db, threads, records, fixed, maxSize, workload, outputPath);
+        BenchmarkRunner benchmark = new BenchmarkRunner(db, threads, records, maxSize, workload, outputPath);
         benchmark.run();
         db.disconnect();
     }

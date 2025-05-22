@@ -2,11 +2,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.sun.management.OperatingSystemMXBean;
 import databases.Database;
@@ -26,7 +24,6 @@ public class BenchmarkRunner {
     private final Database database;
     private final int threadCount;
     private final int recordCount;
-    private final boolean fixedRecordSize;
     private final int maxRecordSize;
     private final String workload;
     private final String outputPath;
@@ -35,15 +32,13 @@ public class BenchmarkRunner {
     AtomicLong opCount = new AtomicLong(0);
     private double runningTime = 0;
     private Queue<Long> latencies = new ConcurrentLinkedDeque<>();
-    private List<Double> documentSizes = new ArrayList<>(); // in Kilobytes
     AtomicInteger currentDocID = new AtomicInteger(0);
 
 
-    public BenchmarkRunner(Database database, int threadCount, int recordCount, boolean fixedRecordSize, int maxRecordSize, String workload, String outputPath) {
+    public BenchmarkRunner(Database database, int threadCount, int recordCount, int maxRecordSize, String workload, String outputPath) {
         this.database = database;
         this.threadCount = threadCount;
         this.recordCount = recordCount;
-        this.fixedRecordSize = fixedRecordSize;
         this.maxRecordSize = maxRecordSize;
         this.workload = workload;
         this.outputPath = outputPath;
@@ -96,7 +91,7 @@ public class BenchmarkRunner {
         export();
     }
 
-    private record SystemSnapshot(long timestamp, double cpuLoad, double cpuProcessLoad, long usedMemory){};
+    private record SystemSnapshot(long timestamp, double cpuLoad, long usedMemory){};
 
     private void systemMonitoring(AtomicBoolean running){
         Thread monitor = new Thread(() -> {
@@ -104,10 +99,9 @@ public class BenchmarkRunner {
             OperatingSystemMXBean os = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
             while(running.get()){
                 double cpuLoad = os.getCpuLoad() * 100; // * 100 um auf prozent zu kommen
-                double cpuLoadProcess = os.getProcessCpuLoad() * 100;
                 long usedMemory = os.getTotalMemorySize() - os.getFreeMemorySize();
                 long timestamp = System.currentTimeMillis();
-                snapshots.add(new SystemSnapshot(timestamp, cpuLoad, cpuLoadProcess, usedMemory));
+                snapshots.add(new SystemSnapshot(timestamp, cpuLoad, usedMemory));
                 try {
                     Thread.sleep(500); // system nur jede halbe sekunde checken
                 } catch (InterruptedException e) {
@@ -121,33 +115,15 @@ public class BenchmarkRunner {
 
     private void export() {
         try (PrintWriter writer = new PrintWriter(outputPath)) {
-            writer.println("timestamp,cpu_load_percent,cpu_load_process_percent,used_memory_mb");
-            for (SystemSnapshot snap : snapshots) {
-                System.out.println(snap.toString());
-                writer.printf("%d,%.2f,%.2f,%.2f%n",
-                        snap.timestamp,
-                        snap.cpuLoad,
-                        snap.cpuProcessLoad,
-                        snap.usedMemory / 1024.0 / 1024.0);
-            }
 
-            writer.println();
-            writer.println("latency_ms");
-            for (long latency : latencies) {
-                writer.printf("%.3f%n", latency / 1e6);
-            }
+            writer.println("database, workload, thread_count, cpu_load_avg_percent, memory_avg_mb, latency_avg_ms, throughput_ops_per_sec, running_time_sec, total_ops");
 
-            writer.println();
-            writer.println("doc_sizes_kb");
-            for(Double doc: documentSizes) {
-                writer.printf("%.2f%n", doc);
-            }
+            double avg_cpu = snapshots.stream().mapToDouble(SystemSnapshot::cpuLoad).average().orElse(0.0);
+            double avg_mem = snapshots.stream().mapToDouble(SystemSnapshot::usedMemory).average().orElse(0.0) /1024.0 /1024.0; //convert to mb
+            double avg_latency = latencies.stream().mapToDouble(Long::doubleValue).average().orElse(0.0) / 1e6;
+            String db = database.getClass().toString();
 
-            writer.println();
-            writer.println("summary");
-            writer.println("operation_type,thread_count,total_throughput_ops_per_sec,running_time_sec,total_ops");
-            writer.printf("%s,%d,%.2f,%.2f,%d%n", workload, threadCount, throughput, runningTime, opCount.get());
-
+            writer.printf("%s, %s, %d, %.2f, %.2f, %.2f, %.2f, %.2f, %d", db, workload, threadCount, avg_cpu, avg_mem, avg_latency, throughput, runningTime, opCount.get());
             writer.flush();
 
             System.out.println("Metrics exported to " + outputPath);
@@ -184,25 +160,12 @@ public class BenchmarkRunner {
             int difference = (maxRecordSize * 1000) - jsonBytes.length; //convert maxrecordsize from Kb to b
             short[] padding = new short[difference/4];
 
-            // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen, oder beliebig viel bis fixedRecordSize=maxRecordSize
-            // funktioniert nicht, keine Ahnung warum, make fixedSize Int instead of Boolean???
-            /*
-            if(fixedRecordSize){
-                padding = new short[difference/4]; //short is 2 bytes
-            } else {
-                padding = new short[rand.nextInt(0, difference/4)];
-            }
-
-             */
+            // füge padding hinzu um bei fixedRecordSize=true auf maxRecordSize zu kommen
 
             Arrays.fill(padding, (short) 0xa);
             document.put("padding", Arrays.toString(padding));
 
-            byte[] endBytes = objectMapper.writeValueAsBytes(document);
-            System.out.println("SIZE: " + endBytes.length);
-            documentSizes.add(endBytes.length / 1000.0);
-            Map<String, Object> result = objectMapper.convertValue(document, new TypeReference<Map<String, Object>>(){});
-            return result;
+            return objectMapper.convertValue(document, new TypeReference<Map<String, Object>>(){});
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -228,6 +191,4 @@ public class BenchmarkRunner {
             }
         }
     }
-
-
 }
