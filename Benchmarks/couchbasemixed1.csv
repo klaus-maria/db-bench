@@ -1,0 +1,2 @@
+database, workload, thread_count, cpu_load_avg_percent, memory_avg_mb, latency_avg_ms, throughput_ops_per_sec, running_time_sec, total_ops
+class databases.CouchbaseClient, mixed, 1, 82.31, 9493.15, 50.76, 19698659861.09, 507.65, 10000

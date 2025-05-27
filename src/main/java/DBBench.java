@@ -28,7 +28,7 @@ public class DBBench {
         int records = Integer.parseInt(cmd.getOptionValue("records", "10000"));
         int maxSize = Integer.parseInt(cmd.getOptionValue("maxSize", "10"));
         String workload = cmd.getOptionValue("workload", "mixed");
-        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "\\Desktop\\DBBench\\benchmark.csv");
+        String outputPath = cmd.getOptionValue("output", System.getProperty("user.home") + "\\Desktop\\" + dbType + workload + threads + ".csv");
 
 
         Database db;

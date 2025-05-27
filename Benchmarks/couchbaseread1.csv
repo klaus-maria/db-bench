@@ -1,0 +1,2 @@
+database, workload, thread_count, cpu_load_avg_percent, memory_avg_mb, latency_avg_ms, throughput_ops_per_sec, running_time_sec, total_ops
+class databases.CouchbaseClient, read, 1, 66.66, 8764.78, 209.66, 4769522866.18, 2096.65, 10000
